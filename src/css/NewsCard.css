@@ -1,0 +1,57 @@
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mdl-button.sml {
+  width: 32px;
+  height: 32px;
+  min-width: initial;
+}
+
+.demo-card-wide.mdl-card {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .demo-card-wide.mdl-card {
+    width: 632px;
+  }
+  .nyr-copy {
+    max-width: 488px;
+  }
+}
+
+@media (max-width: 720px) {
+  .demo-card-wide.mdl-card {
+    width: 528px;
+  }
+  .nyr-copy {
+    max-width: 376px;
+  }
+}
+
+@media (max-width: 600px) {
+  .demo-card-wide.mdl-card {
+    width: 460px;
+  }
+  .nyr-copy {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-card-wide.mdl-card {
+    width: 360px;
+  }
+  .nyr-copy {
+    max-width: 280px;
+  }
+  .nyr-logo {
+    width: 64px;
+    height: 64px;
+  }
+}

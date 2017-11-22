@@ -1,0 +1,94 @@
+// Import SASS variables
+@import "config.variables";
+
+.dash-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+.mdl_layout__drawer {
+  border-right: none;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.mdi-icon.black-circle {
+  fill: white;
+  background-color: $black;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin-top: 16px;
+  margin-left: 24px;
+}
+
+.mdi-icon.margin-right {
+  margin-right: 32px;
+  fill: white;
+}
+
+.icon-row {
+  display: flex;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $grey;
+}
+
+.dash-drawer {
+  border: none;
+  background-color: $grey-dark !important;
+}
+
+/* iOS Safari specific workaround */
+.dash-drawer .mdl-menu__container {
+  z-index: -1;
+}
+
+.dash-drawer .dash-navigation {
+  z-index: -2;
+}
+
+/* END iOS Safari specific workaround */
+.dash-drawer .mdl-menu .mdl-menu__item {
+  display: flex;
+  align-items: center;
+}
+
+.dash-drawer-header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: black;
+  padding: 8px;
+}
+
+.dash-avatar-dropdown {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  color: $grey-light;
+}
+
+.dash-navigation {
+  flex-grow: 1;
+}
+
+.color-white {
+  color: white;
+}
+
+.dash-navigation .mdl-navigation__link .material-icons {
+  margin-right: 32px;
+}
+
+.mdl-navigation__link:hover .hover-black {
+  color: $black !important;
+  fill:  $black !important;
+}

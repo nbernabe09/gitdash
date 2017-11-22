@@ -1,0 +1,11 @@
+.mdl-textfield {
+  min-width: 700px;
+}
+
+.show-on-foc {
+  visibility: hidden;
+}
+
+.is-focused .show-on-foc {
+  visibility: visible;
+}

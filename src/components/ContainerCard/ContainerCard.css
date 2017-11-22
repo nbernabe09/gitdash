@@ -1,0 +1,67 @@
+.flex {
+  display: flex;
+}
+
+.mdl-card__title-text {
+  text-transform: capitalize;
+}
+
+.nyr-copy {
+  max-width: 700px;
+}
+
+.demo-card-wide.mdl-card {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .demo-card-wide.mdl-card {
+      width: 632px;
+  }
+
+  .nyr-copy {
+      max-width: 488px;
+  }
+}
+
+@media (max-width: 720px) {
+  .demo-card-wide.mdl-card {
+      width: 528px;
+  }
+
+  .nyr-copy {
+      max-width: 376px;
+  }
+}
+
+@media (max-width: 600px) {
+  .demo-card-wide.mdl-card {
+      width: 460px;
+  }
+
+  .nyr-copy {
+      max-width: 360px;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-card-wide.mdl-card {
+      width: 360px;
+  }
+
+  .nyr-copy {
+      max-width: 280px;
+  }
+
+  .nyr-logo {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 64px;
+  }
+
+  .mdl-layout__header {
+    max-height: 128px;
+  }
+}

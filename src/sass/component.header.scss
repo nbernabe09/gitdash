@@ -1,0 +1,12 @@
+// Import SASS variables
+@import "config.variables";
+
+.dash-header {
+  background-color: $grey-dark;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 173px;
+  height: 54px;
+}

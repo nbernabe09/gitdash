@@ -1,0 +1,11 @@
+.dash-header {
+  background-color: #4C474D;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.logo {
+  width: 173px;
+  height: 54px;
+}
