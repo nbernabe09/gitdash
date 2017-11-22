@@ -96,3 +96,18 @@ The data we want from the user is:
 - id
 - avatar_url
 - html_url
+
+Once you've created these constructors and put them into their own
+individual files, you can import them into the api routes. Instead
+of `res.json(results)` return `results.map(e => new Repo(e)` which
+will give us just the data we want in objects.
+
+From here you can make the data base schema which will naturally
+follow from these constructors.
+
+## Create Database Models
+
+As far as I can tell right now we only need repo and user model
+schemas. While we might work with other data, I don't believe we
+will save actual data. As is indicated by the response relationship,
+users need to be related to repos.
