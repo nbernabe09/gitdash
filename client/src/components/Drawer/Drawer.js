@@ -23,7 +23,7 @@ const Drawer = props =>
         <StarIcon className="black-circle" />
       </div>
         <div className="dash-avatar-dropdown">
-          <span>hello@example.com</span>
+          <span>Welcome, Username</span>
           <div className="mdl-layout-spacer" />
           <Button id="accbtn" ripple={true} className="mdl-button--icon">
               <Icon name="arrow_drop_down" className="material-icons" role="presentation" />

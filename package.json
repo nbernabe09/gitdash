@@ -1,26 +1,29 @@
 {
-  "name": "gitdash",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "mdi-react": "^2.0.46-hotfix.0",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "react-mdl": "^1.11.0",
-    "react-mdl-selectfield": "^0.2.0",
-    "react-scripts": "1.0.17"
-  },
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "Gitdash",
+  "proxy": "http://localhost:3001/",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "render": "node render_sass.js"
+    "server": "node server.js",
+    "client": "cd client && npm run start",
+    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
-    "node-sass": "^4.7.2",
-    "postcss": "^6.0.14",
-    "underscore.string": "^3.3.4"
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.13.1",
+    "request": "^2.83.0"
   }
 }

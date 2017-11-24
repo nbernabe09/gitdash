@@ -1,0 +1,118 @@
+// Import SASS variables
+@import "config.variables";
+
+.flex {
+  display: flex;
+}
+
+.mdi-icon.orange-circle {
+  fill: $black;
+  background-color: $orange;
+  padding: 3px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+.mr {
+  margin-right: 16px !important;
+}
+
+.avatar-name {
+  font-size: 12px;
+  display: block;
+  margin-left: 4px;
+}
+
+.avatar-box, .dash-avatar{
+  padding: 4px;
+}
+
+.name-desc-box {
+  margin-left: 16px;
+}
+
+.avatar-box {
+  width: 64px;
+}
+
+.code-tag {
+  position: absolute !important;
+  right: 8px;
+  top: 8px !important;
+  font-size: 10px !important;
+  color: $black !important;
+  background-color: $orange !important;
+}
+
+.no-flex {
+  display: block;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.mdl-card {
+  min-height: initial !important;
+}
+
+.mdl-button.sml {
+  width: 32px;
+  height: 32px;
+  min-width: initial;
+}
+
+.mdl-button.v-sml {
+  width: 24px;
+  height: 24px;
+  min-width: initial;
+  background-color: $orange !important;
+  color: $black !important;
+}
+
+.v-sml .material-icons {
+  background-color: $orange !important;
+  fill: $black !important;
+}
+
+.dash-card-wide.mdl-card {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mdl-card__supporting-text {
+  padding: 0 8px 8px 8px !important;
+}
+
+.padding-0 {
+  padding: 0px !important;
+}
+
+.padding-1 {
+  padding: 8px !important;
+}
+
+@media (max-width: 1024px) {
+  .dash-card-wide.mdl-card {
+    width: 632px;
+  }
+}
+
+@media (max-width: 720px) {
+  .dash-card-wide.mdl-card {
+    width: 528px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dash-card-wide.mdl-card {
+    width: 460px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dash-card-wide.mdl-card {
+    width: 360px;
+  }
+}

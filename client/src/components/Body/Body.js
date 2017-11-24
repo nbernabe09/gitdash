@@ -5,13 +5,18 @@ import Header from "../Header";
 import Drawer from "../Drawer";
 import Main from "../Main";
 import SearchForm from "../SearchForm";
+import ContainerCard from "../ContainerCard"
+import RepoCard from "../RepoCard"
 
 const Body = props =>
   <Layout fixedDrawer={true} className="dash-layout">
     <Header />
     <Drawer />
     <Main>
-      <SearchForm />
+      <ContainerCard title="Search Repositories">
+        {/* <SearchForm /> */}
+        { <RepoCard />}
+      </ContainerCard>
     </Main>
   </Layout>
 
