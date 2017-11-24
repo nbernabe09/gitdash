@@ -1,6 +1,7 @@
+// Import SASS variables
+@import "config.variables";
+
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -19,49 +20,54 @@
 }
 
 .dash-card-wide.orange-shadow {
-  -webkit-box-shadow: -11px 10px 0px -2px #FDD835;
-          box-shadow: -11px 10px 0px -2px #FDD835;
+  box-shadow: -11px 10px 0px -2px $orange;
 }
 
 @media (max-width: 1024px) {
   .dash-card-wide.mdl-card {
-    width: 632px;
+      width: 632px;
   }
+
   .nyr-copy {
-    max-width: 488px;
+      max-width: 488px;
   }
 }
 
 @media (max-width: 720px) {
   .dash-card-wide.mdl-card {
-    width: 528px;
+      width: 528px;
   }
+
   .nyr-copy {
-    max-width: 376px;
+      max-width: 376px;
   }
 }
 
 @media (max-width: 600px) {
   .dash-card-wide.mdl-card {
-    width: 460px;
+      width: 460px;
   }
+
   .nyr-copy {
-    max-width: 360px;
+      max-width: 360px;
   }
 }
 
 @media (max-width: 480px) {
   .dash-card-wide.mdl-card {
-    width: 360px;
+      width: 360px;
   }
+
   .nyr-copy {
-    max-width: 280px;
+      max-width: 280px;
   }
+
   .nyr-logo {
     width: 96px;
     height: 96px;
     margin-bottom: 64px;
   }
+
   .mdl-layout__header {
     max-height: 128px;
   }

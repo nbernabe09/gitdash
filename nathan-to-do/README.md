@@ -20,14 +20,18 @@ Read up on this section in the github API.
 
 [list-user-repositories](https://developer.github.com/v3/repos/#list-user-repositories)
 
-There's three properties we are using so lets Make the API route `/search/user/`
-and use [query parameters](http://expressjs.com/en/api.html#req.query).
+Our api route should be `/search/user/:searchterm`.
+
+We will pass [query parameters](http://expressjs.com/en/api.html#req.query) to
+the github api but will not let users of our api change the settings.
+
+There's three properties, for `type` set `all`, for `sort` set `updated`, and
+for `direction` set `desc`.
 
 Here's an example api call to github with the response:
 
 `https://api.github.com/users/almaclaine/repos?sort=created&direction=desc`
 
-So make our routes match the queries and call off to github and
 res.json the returned data.
 
 ### Org Search
@@ -36,8 +40,9 @@ Read up on this section in the github API.
 
 [list-organization-repositories](https://developer.github.com/v3/repos/#list-organization-repositories)
 
-Only a single parameter on this route but for consistency sake lets
-user query parameters as well here. Same deal as above.
+Make the route `/search/org/:searchterm/` and set the `type` parameter to `all`.
+
+res.json the returned data.
 
 ### Search Repositories
 
@@ -45,9 +50,13 @@ Here is how we search by topic.
 
 Read up on this section in the github API.
 
-[search-repositories](https://developer.github.com/v3/repos/#list-organization-repositories)
+[search-repositories](https://developer.github.com/v3/search/#search-repositories)
 
-This one has three parameters like the first. Same deal as above.
+Our api route should be `/search/repo/:q`. As you can see in the github api,
+this route only takes query parameters. So send off our route caputured `q` as
+and `sort` as `updated` and `order` as `desc`.
+
+res.json the returned data.
 
 ## Create Constructors for Our Return Data
 
