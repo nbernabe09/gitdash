@@ -1,8 +1,6 @@
 const router        = require("express").Router();
-const savedRoutes = require("./saved");
-const scrapeRoutes = require("./scrape");
+const searchRoutes = require("./search");
 
-router.use("/saved", savedRoutes);
-router.use("/scrape", scrapeRoutes);
+router.use("/search", searchRoutes);
 
 module.exports = router;

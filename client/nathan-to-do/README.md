@@ -12,56 +12,7 @@ Here is a link the ux pin pages.
 
 [Results Page](https://preview.uxpin.com/92538e18b34858ff45fe1ab09e861161be9f7a19#/pages/77559299/simulate/no-panels?mode=i)
 
-## Create APIs
-
-### User Search
-
-Read up on this section in the github API.
-
-[list-user-repositories](https://developer.github.com/v3/repos/#list-user-repositories)
-
-Our api route should be `/search/user/:searchterm`.
-
-We will pass [query parameters](http://expressjs.com/en/api.html#req.query) to
-the github api but will not let users of our api change the settings.
-
-There's three properties, for `type` set `all`, for `sort` set `updated`, and
-for `direction` set `desc`.
-
-Here's an example api call to github with the response:
-
-`https://api.github.com/users/almaclaine/repos?sort=created&direction=desc`
-
-res.json the returned data.
-
-### Org Search
-
-Read up on this section in the github API.
-
-[list-organization-repositories](https://developer.github.com/v3/repos/#list-organization-repositories)
-
-Make the route `/search/org/:searchterm/` and set the `type` parameter to `all`.
-
-res.json the returned data.
-
-### Search Repositories
-
-Here is how we search by topic.
-
-Read up on this section in the github API.
-
-[search-repositories](https://developer.github.com/v3/search/#search-repositories)
-
-Our api route should be `/search/repo/:q`. As you can see in the github api,
-this route only takes query parameters. So send off our route caputured `q` as
-and `sort` as `updated` and `order` as `desc`.
-
-res.json the returned data.
-
 ## Create Constructors for Our Return Data
-
-If you get the APIs made then create these convenience constructors
-for dealing with response data.
 
 We need two ES5 constructor functions for Users and Repos.
 
