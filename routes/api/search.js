@@ -48,7 +48,7 @@ function handlerGen(routHand) {
 }
 
 router.route("/user/:term")
-  .getw(handlerGen(userRoute));
+  .get(handlerGen(userRoute));
 
 router.route("/org/:term")
   .get(handlerGen(orgRoute));

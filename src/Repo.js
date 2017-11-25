@@ -4,7 +4,6 @@ function Repo(respObj) {
   this.id                = respObj.id               || "0000000";
   this.name              = respObj.name             || "NO REPO NAME"
   this.owner             = new User(respObj.owner);
-  this.avatar_url        = respObj.avatar_url       || "http://www.dummyurl.com";
   this.html_url          = respObj.html_url         || "http://www.dummyurl.com";
   this.forks             = respObj.forks            || 0;
   this.open_issues       = respObj.open_issues      || 0;
