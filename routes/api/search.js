@@ -39,12 +39,12 @@ function handlerGen(routHand) {
   return (req, res) =>
       axios.get(routHand(req.params.term))
       .then(function (resp) {
-        console.log("SDFSDF");
         const source = resp.data.items || resp.data;
         const repos  = source.map(e => new Repo(e));
         res.json(repos);
       })
       .catch((err) => {
+        console.log(err);
         res.json(err);
       })
 }

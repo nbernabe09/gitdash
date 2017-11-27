@@ -51,6 +51,7 @@ class SearchForm extends React.Component {
           </span>
         </button>
       </form>
+      {fireRedirect && <Redirect to={`/search/${this.state.type}/${this.state.term}`} />}
     </ContainerCard>
   }
 }

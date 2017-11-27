@@ -40,7 +40,7 @@ const Drawer = props =>
       </div>
     </header>
     <Navigation className="dash-navigation">
-        <a href="">
+        <a href="/">
           <MagnifyIcon className="margin-right hover-black"/>
           <span className="color-white hover-black">Search</span>
         </a>
