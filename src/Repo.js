@@ -1,9 +1,9 @@
-const User = require("./User.js");
+const Owner = require("./Owner.js");
 
 function Repo(respObj) {
-  this.id                = respObj.id               || "0000000";
+  this.repo_id           = respObj.id               || "0000000";
   this.name              = respObj.name             || "NO REPO NAME"
-  this.owner             = new User(respObj.owner);
+  this.owner             = new Owner(respObj.owner);
   this.html_url          = respObj.html_url         || "http://www.dummyurl.com";
   this.forks             = respObj.forks            || 0;
   this.open_issues       = respObj.open_issues      || 0;

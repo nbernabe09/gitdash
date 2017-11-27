@@ -1,8 +1,8 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var RepoSchema = new Schema({
+const RepoSchema = new Schema({
   repo_id: {
     type: Number,
     required: true
@@ -12,7 +12,7 @@ var RepoSchema = new Schema({
     required: true
   },
   owner: {
-    type: Schema.Types.User,
+    type: Schema.Types.Owner,
     required: true
   },
   html_url: {
@@ -39,7 +39,7 @@ var RepoSchema = new Schema({
     type: String,
     required: true,
   },
-  updated_update: {
+  updated_at: {
     type: Date,
     required: true
   },
@@ -53,6 +53,6 @@ var RepoSchema = new Schema({
   }
 });
 
-var Repo = mongoose.model("Repo", RepoSchema);
+const Repo = mongoose.model("Repo", RepoSchema);
 
 module.exports = Repo;

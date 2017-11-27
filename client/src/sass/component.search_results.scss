@@ -1,0 +1,7 @@
+// Import SASS variables
+@import "config.variables";
+
+a {
+  text-decoration: none;
+  color: $black !important;
+}

@@ -1,14 +1,14 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var RepoSchema = new Schema({
-  owner_id: {
-    type: Number,
-    required: true
-  },
+const UserSchema = new Schema({
   login: {
     type: String,
+    required: true
+  },
+  user_id: {
+    type: Number,
     required: true
   },
   avatar_url: {
@@ -18,9 +18,21 @@ var RepoSchema = new Schema({
   html_url: {
     type: String,
     required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: String,
+    required: true
   }
 });
 
-var Repo = mongoose.model("Repo", RepoSchema);
+const User = mongoose.model("User", UserSchema);
 
-module.exports = Repo;
+module.exports = User;

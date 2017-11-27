@@ -17,7 +17,7 @@ const Drawer = props =>
   <DrawerMDL className="dash-drawer no-border">
     <header className="dash-drawer-header" role="presentation">
       <div className="icon-row">
-        <img src="images/user.jpg" alt="user-avatar" className="dash-avatar" />
+        <img src="/images/user.jpg" alt="user-avatar" className="dash-avatar" />
         <SourceForkIcon className="black-circle" />
         <EyeIcon className="black-circle" />
         <StarIcon className="black-circle" />
