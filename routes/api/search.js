@@ -18,12 +18,12 @@ const usersRoute = term => {
 
 const orgsRoute = term => {
   const orgsOptions = { type: "all", access_token: "a506fda59c1626c04002965a841dc44577387571" };
-  return `http://api.github.com/orgs/${term}/repos${objToQueryParams(orgsOptions)}`;
+  return `https://api.github.com/orgs/${term}/repos${objToQueryParams(orgsOptions)}`;
 }
 
 const reposRoute = term => {
   const reposOptions = { q: term, sort: "updated", order: "desc", access_token: "a506fda59c1626c04002965a841dc44577387571" };
-  return `http://api.github.com/search/repositories${objToQueryParams(reposOptions)}`
+  return `https://api.github.com/search/repositories${objToQueryParams(reposOptions)}`
 }
 
 const genOptions = url => ({
