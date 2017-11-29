@@ -12,17 +12,17 @@ function objToQueryParams(obj) {
 }
 
 const usersRoute = term => {
-  const usersOptions = { type: "all", sort: "updated", direction: "desc", access_token: '9eb372d048ffcd57bd9c2fd5a0fd4b19caa90d48' };
+  const usersOptions = { type: "all", sort: "updated", direction: "desc", access_token: "a506fda59c1626c04002965a841dc44577387571" };
   return `https://api.github.com/users/${term}/repos${objToQueryParams(usersOptions)}`;
 }
 
 const orgsRoute = term => {
-  const orgsOptions = { type: "all", access_token: '9eb372d048ffcd57bd9c2fd5a0fd4b19caa90d48' };
+  const orgsOptions = { type: "all", access_token: "a506fda59c1626c04002965a841dc44577387571" };
   return `http://api.github.com/orgs/${term}/repos${objToQueryParams(orgsOptions)}`;
 }
 
 const reposRoute = term => {
-  const reposOptions = { q: term, sort: "updated", order: "desc", access_token: '9eb372d048ffcd57bd9c2fd5a0fd4b19caa90d48' };
+  const reposOptions = { q: term, sort: "updated", order: "desc", access_token: "a506fda59c1626c04002965a841dc44577387571" };
   return `http://api.github.com/search/repositories${objToQueryParams(reposOptions)}`
 }
 
@@ -36,17 +36,22 @@ const genOptions = url => ({
 const Repo = require("../../src/Repo.js");
 
 function handlerGen(routHand) {
-  return (req, res) =>
-      axios.get(routHand(req.params.term))
-      .then(function (resp) {
-        const source = resp.data.items || resp.data;
-        const repos  = source.map(e => new Repo(e));
-        res.json(repos);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.json(err);
-      })
+  return (req, res) => {
+    let url = routHand(req.params.term);
+    console.log(url);
+    axios.get(url)
+    .then(function (resp) {
+      console.log(resp);
+      const source = resp.data.items || resp.data;
+      const repos  = source.map(e => new Repo(e));
+      res.json(repos);
+    })
+    .catch((err) => {
+      console.log("ERR");
+      console.log(err);
+      res.json(err);
+    })
+  }
 }
 
 router.route("/users/:term")
