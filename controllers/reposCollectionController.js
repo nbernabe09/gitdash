@@ -1,22 +1,21 @@
 const db = require("../models");
 
 module.exports = {
-  getRepoCollection: function(req, res) {
-    const repoColl = req.params.id;
+  get: function(req, res) {
     db.RepoCollection
-      .find({ _id: repoColl })
+      .find({ _id: req.params.id })
       .then(ret => res.json(ret))
       .catch(err => res.status(422).json(err));
   },
-  addRepoToColl: function (req, res) {
+  add: function (req, res) {
     db.RepoCollection
-      .findOneAndUpdate({ _id: req.params.id }, { $push: { tag: req.body.repo_id } }, { upsert: false })
+      .findOneAndUpdate({ _id: req.params.id }, { $push: { repos: req.body.repo_id } }, { upsert: false })
       .catch(err => res.status(422).json(err));
     res.end();
   },
-  removeRepoFromColl: function (req, res) {
+  remove: function (req, body) {
     db.RepoCollection
-      .findOneAndUpdate({ _id: req.params.id }, { $pull: { tag: req.body.repo_id } }, { upsert: false })
+      .findOneAndUpdate({ _id: req.params.id }, { $pull: { repos: req.body.repo_id } }, { upsert: false })
       .catch(err => res.status(422).json(err));
     res.end();
   }

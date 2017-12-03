@@ -1,14 +1,13 @@
 const db = require("../models");
 
 module.exports = {
-  getRepoOwner: function(req, res) {
-    const repo_id = req.params.id;
+  get: function(req, res) {
     db.RepoOwner
-      .find({repo_id: repo_id})
-      .then(dbRepoLang => res.json(dbRepoLang))
+      .find({ repo_id: req.params.id })
+      .then(owner => res.json(owner))
       .catch(err => res.status(422).json(err));
   },
-  setRepoOwner: function(req, res) {
+  set: function(req, res) {
     const obj = {
       repo_id:  req.params.id,
       owner_id: req.body.owner
@@ -18,9 +17,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
       res.end();
   },
-  addRepoOwner: function(req, res) {
+  add: function(id, owner) {
     const obj = {
-      repo_id:  req.params.id,
+      repo_id: req.params.id,
       owner_id: req.body.owner
     }
     db.RepoOwner

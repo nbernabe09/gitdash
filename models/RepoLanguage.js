@@ -5,8 +5,9 @@ const Schema = mongoose.Schema;
 const RepoLanguageSchema = new Schema({
   repo_id: {
     type: Number,
+    unique: true,
     required: true,
-    set: e => this.repo
+    set: e => this.repo_id
   },
   language: {
     type: String,

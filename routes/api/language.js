@@ -4,6 +4,8 @@ const reposLanguageController   = require("../../controllers/reposLanguageContro
 // Matches with "/api/language/:id"
 router
   .route("/:id")
-  .get(reposLanguageController.getRepoLanguage)
-  .put(reposLanguageController.setRepoLanguage)
-  .post(reposLanguageController.addRepoLanguage)
+  .get(reposLanguageController.get)
+  .put(reposLanguageController.set)
+  .post(reposLanguageController.add);
+
+module.exports = router;

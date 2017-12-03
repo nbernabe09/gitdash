@@ -4,6 +4,8 @@ const reposCollectionController = require("../../controllers/reposCollectionCont
 // Matches with "/api/collection/:id"
 router
   .route("/:id")
-  .get(reposCollectionController.getRepoCollection)
-  .post(reposCollectionController.addRepoToColl)
-  .delete(reposCollectionController.removeRepoFromColl)
+  .get(reposCollectionController.get)
+  .post(reposCollectionController.add)
+  .delete(reposCollectionController.remove);
+
+module.exports = router;

@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const RepoOwnerSchema = new Schema({
   repo_id: {
     type: Number,
+    unique: true,
     required: true,
     set: e => this.repo
   },
