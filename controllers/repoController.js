@@ -28,12 +28,11 @@ module.exports = {
               .findOneAndUpdate({ repo_id: repoObj.repo_id },
                                   repoObj,
                                 { upsert: false })
-              .then(repo => res.json(repo))
               .catch(err => res.status(422).json(err));
           })
           .catch (err => res.status(422).json(err));
         })
       .catch(err => res.status(422).json(err));
-    res.end();
+      res.end();
   }
 }

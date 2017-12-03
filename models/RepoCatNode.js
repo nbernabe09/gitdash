@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const RepoCatNodeSchema = new Schema({
   repo: {
     type: Schema.Types.ObjectId,
-    ref: "Repo"
+    ref: "Repo",
+    set: e => this.repo
   },
   category: {
     type: String,

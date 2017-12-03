@@ -8,13 +8,12 @@ module.exports = {
       .then(ret => res.json(ret))
       .catch(err => res.status(422).json(err));
   },
-  setRepoOwner: function(req, res) {
+  setRepoCatNodeCategory: function(req, res) {
     const obj = {
-      repo_id:  req.params.id,
-      owner_id: req.body.owner
+      owner_id: req.body.category
     }
-    db.RepoOwner
-      .findOneAndUpdate({ repo_id: obj.repo_id }, obj, { upsert: true })
+    db.RepoCatNode
+      .findOneAndUpdate({ _id: obj.repo_id }, obj, { upsert: false })
       .catch(err => res.status(422).json(err));
       res.end();
   },
@@ -24,7 +23,7 @@ module.exports = {
       owner_id: req.body.owner
     }
     db.RepoOwner
-      .findOneAndUpdate({ repo_id: obj.repo_id }, obj, { upsert: true })
+      .findOneAndUpdate({ repo_id: obj.repo_id }, obj, { upsert: false })
       .catch(err => res.status(422).json(err));
       res.end();
   }
