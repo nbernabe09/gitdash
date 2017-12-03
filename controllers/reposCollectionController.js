@@ -14,7 +14,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
     res.end();
   },
-  removeRepoToColl: function (req, res) {
+  removeRepoFromColl: function (req, res) {
     db.RepoCollection
       .findOneAndUpdate({ _id: req.params.id }, { $pull: { tag: req.body.repo_id } }, { upsert: false })
       .catch(err => res.status(422).json(err));
