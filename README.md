@@ -1,84 +1,41 @@
-# Create React Express App
+# gitdash
 
-## About This Boilerplate
+Gitdash is a revised dashboard for GitHub.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+Fully integrate with your Github account and view and track stats on repositories. Browse and track repos from Github, all in one sleek and comprehensive interface.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+We use Github sign-in to keep your private information and data private.
 
-## Starting the app locally
+# Table of Contents
 
-Start by installing front and backend dependencies. While in this directory, run the following commands:
+* [Local Install](#local-install)
+* [Authors](#authors)
+* [License](#license)
+* [Acknowledgments](#acknowledgments)
+
+### Local Install
+
+In order to run a localized version of this program, you must install all of the dependencies within the root folder and the client folder.
 
 ```
 yarn install
 cd client
 yarn install
 cd .. 
-``
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
 ```
 
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+## Authors
 
-## Deployment (Heroku)
+* **Alessandro Maclaine** - *Project Lead* - [ALMaclaine](https://github.com/ALMaclaine)
+* **Nathan Bernabe** - *Back-End Lead* - [nbernabe09](https://github.com/nbernabe09)
+* **Slater Combes** - *Front-End Lead* - [lifesizehuman](https://github.com/lifesizehuman)
 
-### Create a Git Repo
+See also the list of [contributors](https://github.com/ALMaclaine/gitdash/graphs/contributors) who participated in this project.
 
-Once you're ready to deploy, start by making sure your project is a git repository. If so, proceed to the next section, otherwise run the following commands in your terminal:
+## License
 
-```
-git init
-git add .
-git commit -m "Initial commit"
-```
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-### Heroku
+## Acknowledgments
 
-Make sure that you have a Heroku app created for this project. If so, proceed to the next section, otherwise run the following command in your terminal:
-
-```
-heroku create
-```
-
-Optionally add an argument for your application's name after `create`, e.g.
-
-```
-heroku myawesomeapp
-```
-
-### Deploying
-
-#### Option 1
-
-Use the deploy script inside of the outer `package.json`
-
-After confirming that you have an up to date git repository and a Heroku app created, run the following command to deploy:
-
-```
-yarn deploy
-```
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
-
-#### Option 2
-
-Manually deploy 
-
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
-
-1. Build the React app for production by running the following command:
-
-```
-yarn build
-```
-
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
+We would like to thank our instructor [Brandon Fulljames](https://github.com/Evertras), and our TA's [Andrew](https://github.com/apati04) and [Jose](https://github.com/joseflores8082) for their guidance and knowledge in the months leading up this project.
