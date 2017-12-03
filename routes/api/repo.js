@@ -5,9 +5,8 @@ const reposCatNodeController    = require("../../controllers/reposCatNodeControl
 const reposLanguageController   = require("../../controllers/reposLanguage");
 const reposOwnerController      = require("../../controllers/reposOwner");
 
-router.route("/")
-  .get(articlesController.findArticles)
-  .post(articlesController.saveArticle)
-  .delete(articlesController.deleteArticle);
+router.route("/:id")
+  .get(reposController.getRepo)
+  .post(repoController.addRepo)
 
 module.exports = router;
