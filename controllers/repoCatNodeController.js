@@ -10,21 +10,23 @@ module.exports = {
   },
   setRepoCatNodeCategory: function(req, res) {
     const obj = {
-      owner_id: req.body.category
+      category: req.body.category
     }
     db.RepoCatNode
-      .findOneAndUpdate({ _id: obj.repo_id }, obj, { upsert: false })
+      .findOneAndUpdate({ _id: req.params.id }, obj, { upsert: false })
       .catch(err => res.status(422).json(err));
       res.end();
   },
-  addRepoOwner: function(req, res) {
-    const obj = {
-      repo_id:  req.params.id,
-      owner_id: req.body.owner
-    }
-    db.RepoOwner
-      .findOneAndUpdate({ repo_id: obj.repo_id }, obj, { upsert: false })
+  addRepoCatNodeTag: function (req, res) {
+    db.RepoCatNode
+      .findOneAndUpdate({ _id: req.params.id }, { $push: { tag: req.body.tag } }, { upsert: false })
       .catch(err => res.status(422).json(err));
-      res.end();
+    res.end();
+  },
+  removeRepoCatNodeTag: function (req, res) {
+    db.RepoCatNode
+      .findOneAndUpdate({ _id: req.params.id }, { $pull: { tag: req.body.tag } }, { upsert: false })
+      .catch(err => res.status(422).json(err));
+    res.end();
   }
 }
