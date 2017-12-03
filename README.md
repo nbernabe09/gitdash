@@ -1,4 +1,6 @@
-# gitdash
+<p align="center">
+  <img alt="gitdash" src="https://github.com/lifesizehuman/gitland/blob/master/img/logo.png?raw=true" width="400"/>
+</p>
 
 Gitdash is a revised dashboard for GitHub.
 

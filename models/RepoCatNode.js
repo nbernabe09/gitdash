@@ -14,8 +14,7 @@ const RepoCatNodeSchema = new Schema({
     default: "Unsorted"
   },
   tags: [{
-    type: String,
-    required: true
+    type: String
   }]
 });
 
