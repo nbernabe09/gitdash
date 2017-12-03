@@ -5,15 +5,13 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   github_id: {
     type: Number,
-    required: true
+    required: true,
+    set: e => this.repo
   },
   repo_collection: {
     type: Schema.Types.ObjectId,
     ref: "RepoCollection",
     required: true
-  },
-  auth_object: {
-    type: Object
   }
 });
 
