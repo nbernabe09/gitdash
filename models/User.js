@@ -11,7 +11,8 @@ const UserSchema = new Schema({
   repo_collection: {
     type: Schema.Types.ObjectId,
     ref: "RepoCollection",
-    required: true
+    required: true,
+    set: e => this.repo
   }
 });
 
