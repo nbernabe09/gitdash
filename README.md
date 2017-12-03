@@ -14,7 +14,7 @@ Start by installing front and backend dependencies. While in this directory, run
 yarn install
 cd client
 yarn install
-cd ..
+cd .. 
 ``
 
 After both installations complete, run the following command in your terminal:

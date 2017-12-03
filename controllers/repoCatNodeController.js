@@ -1,11 +1,11 @@
 const db = require("../models");
 
 module.exports = {
-  getRepoOwner: function(req, res) {
-    const repo_id = req.params.id;
-    db.RepoOwner
-      .find({repo_id: repo_id})
-      .then(dbRepoLang => res.json(dbRepoLang))
+  getRepoCatNode: function(req, res) {
+    const repoCatId = req.params.id;
+    db.RepoCatNode
+      .find({_id: repoCatId})
+      .then(ret => res.json(ret))
       .catch(err => res.status(422).json(err));
   },
   setRepoOwner: function(req, res) {
