@@ -1,0 +1,115 @@
+.dash-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+.mdl_layout__drawer {
+  border-right: none;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.mdi-icon.black-circle {
+  fill: white;
+  background-color: #28222A;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 50%;
+  margin-top: 16px;
+  margin-left: 24px;
+}
+
+.mdi-icon.margin-right {
+  margin-right: 32px;
+  fill: white;
+}
+
+.icon-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #94938F;
+}
+
+.dash-drawer {
+  border: none;
+  background-color: #4C474D !important;
+}
+
+/* iOS Safari specific workaround */
+.dash-drawer .mdl-menu__container {
+  z-index: -1;
+}
+
+.dash-drawer .dash-navigation {
+  z-index: -2;
+}
+
+/* END iOS Safari specific workaround */
+.dash-drawer .mdl-menu .mdl-menu__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dash-drawer-header {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: black;
+  padding: 8px;
+}
+
+.dash-avatar-dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  color: #EBEBEB;
+}
+
+.dash-navigation {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.color-white {
+  color: white;
+}
+
+.dash-navigation .mdl-navigation__link .material-icons {
+  margin-right: 32px;
+}
+
+.mdl-navigation__link:hover .hover-black {
+  color: #28222A !important;
+  fill: #28222A !important;
+}

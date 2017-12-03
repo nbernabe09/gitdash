@@ -23,14 +23,6 @@
           box-shadow: -11px 10px 0px -2px #FDD835;
 }
 
-.mdl-color--primary {
-  background-color: #FDD835 !important; 
-}
-
-.mdl-color--accent {
-  background-color: #8E24AA !important; 
-}
-
 @media (max-width: 1024px) {
   .dash-card-wide.mdl-card {
     width: 632px;

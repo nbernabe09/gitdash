@@ -1,0 +1,8 @@
+// Import SASS variables
+@import "config.variables";
+
+@media (min-width: 1024px) {
+  .w-320px {
+    width: 320px !important;
+  }
+}

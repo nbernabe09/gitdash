@@ -1,0 +1,13 @@
+// Import SASS variables
+@import "config.variables";
+
+.repo-header {
+  background-color: $grey-light;
+  color: $black;
+}
+
+@media (min-width: 1024px) {
+  .pl-80px {
+    margin-left: 80px !important;
+  }
+}

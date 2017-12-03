@@ -1,3 +1,7 @@
 .dash-layout {
   background-color: #28222A;
 }
+
+.mdl-layout__header {
+  background-color: #4C474D !important;
+}

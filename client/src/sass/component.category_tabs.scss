@@ -1,0 +1,10 @@
+// Import SASS variables
+@import "config.variables";
+
+.mdl-tabs__tab {
+  font-size: 10px !important;
+}
+
+@media (min-width: 1024px) {
+  font-size: 12px !important;
+}

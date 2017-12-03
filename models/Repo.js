@@ -7,50 +7,16 @@ const RepoSchema = new Schema({
     type: Number,
     required: true
   },
-  name: {
-    type: String,
-    required: true
-  },
-  owner: {
-    type: Schema.Types.Owner,
-    required: true
-  },
-  html_url: {
-    type: String,
-    required: true
-  },
-  forks: {
-    type: Number,
-    required: true
-  },
-  open_issues: {
-    type: Number,
-    required: true
-  },
-  watchers_count: {
-    type: Number,
-    required: true
-  },
-  clone_url: {
-    type: String,
-    required: true
-  },
   language: {
-    type: String,
-    required: true,
-  },
-  updated_at: {
-    type: Date,
+    type: Schema.Types.ObjectId,
+    ref: "RepoLanguage",
     required: true
   },
-  description: {
-    type: String,
+  owner_id: {
+    type: Schema.Types.ObjectId,
+    ref: "RepoOwner",
     required: true
   },
-  stargazers_count: {
-    type: String,
-    required: true
-  }
 });
 
 const Repo = mongoose.model("Repo", RepoSchema);

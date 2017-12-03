@@ -1,0 +1,10 @@
+.repo-header {
+  background-color: #EBEBEB;
+  color: #28222A;
+}
+
+@media (min-width: 1024px) {
+  .pl-80px {
+    margin-left: 80px !important;
+  }
+}

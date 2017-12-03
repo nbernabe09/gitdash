@@ -1,3 +1,11 @@
-.dash-content {
+.mw-1080 {
   max-width: 1080px;
+}
+
+.pa-8 {
+  padding: 8px;
+}
+
+.pa-0 {
+  padding: 0px !important;
 }

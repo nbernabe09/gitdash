@@ -1,25 +1,26 @@
-const fs   = require("fs");
-const sass = require("node-sass");
-const string = require("underscore.string");
-const path   = require("path");
-const postcss = require("postcss");
+const fs           = require("fs");
+const sass         = require("node-sass");
+const string       = require("underscore.string");
+const path         = require("path");
+const postcss      = require("postcss");
 const autoprefixer = require("autoprefixer");
 
 const isComponent = (e) => /^component\.\w+\.scss$/.test(e);
-const resolve = (paths) => path.resolve(__dirname, ...paths);
-const writeFile = (file, css, name) => fs.writeFile(file, css, (err) => {
+const resolve     = (paths) => path.resolve(__dirname, ...paths);
+const writeFile   = (file, css, name) => fs.writeFile(file, css, (err) => {
       if (!err) console.log(`${name}.css rendered to its component folder.`);
     });
 
 
-[["./src"], ["src", "sass"], ["src", "components"], ["src", "css"]].forEach((e) => {
+/* Check if the following folders exist: src */
+[["src"], ["src", "sass"], ["src", "components"], ["src", "css"]].forEach((e) => {
   const fPath = resolve(e);
   if(!fs.existsSync(fPath)){
     throw new Error(`The following directory must exist: ${fPath}`)
   }
 });
 
-const comps = fs.readdirSync("./src/sass")
+const comps = fs.readdirSync(resolve(["src", "sass"]))
                 .filter(isComponent);
 
 const spacer = "\n               ";
@@ -31,11 +32,11 @@ for(const comp of comps) {
   name = string.camelize(name);
   name = string.capitalize(name);
 
-  const outPath1 = `./src/components/${name}`;
+  const outPath1 = resolve(["src", "components", name]);
   if(!fs.existsSync(outPath1)) {
-    throw new Error(`Folder must for component: ${name} in the ./components folder`);
+    throw new Error(`Folder must for component: ${name} in the components folder`);
   }
-  const outPath2 = `./src/css/`;
+  const outPath2 = resolve(["src", "css"]);
   const outFile1 = resolve([outPath1,`${name}.css`]);
   const outFile2 = resolve([outPath2, `${name}.css`]);
   const fPath = resolve(["src", "sass", comp]);

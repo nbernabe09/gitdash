@@ -1,5 +1,5 @@
 import React from "react";
-import "./Drawer.css";
+import "./NavDrawer.css";
 import { Drawer as DrawerMDL, Button, Navigation, Spacer, Icon, Menu, MenuItem } from 'react-mdl';
 
 /* Icon Imports */
@@ -13,7 +13,7 @@ import ChartAreaSplineIcon     from "mdi-react/ChartAreasplineIcon";
 import CommentAlertOutlineIcon from "mdi-react/CommentAlertOutlineIcon";
 import HelpCircleIcon          from "mdi-react/HelpCircleIcon";
 
-const Drawer = props =>
+const NavDrawer = props =>
   <DrawerMDL className="dash-drawer no-border">
     <header className="dash-drawer-header" role="presentation">
       <div className="icon-row">
@@ -44,7 +44,7 @@ const Drawer = props =>
           <MagnifyIcon className="margin-right hover-black"/>
           <span className="color-white hover-black">Search</span>
         </a>
-        <a href="">
+        <a href="/saved">
           <ContentSaveIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Saved</span>
         </a>
@@ -68,4 +68,4 @@ const Drawer = props =>
     </Navigation>
   </DrawerMDL>
 
-export default Drawer;
+export default NavDrawer;

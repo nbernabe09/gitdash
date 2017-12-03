@@ -3,33 +3,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  login: {
-    type: String,
-    required: true
-  },
-  user_id: {
+  github_id: {
     type: Number,
     required: true
   },
-  avatar_url: {
-    type: String,
+  repo_collection: {
+    type: Schema.Types.ObjectId,
+    ref: "RepoCollection",
     required: true
   },
-  html_url: {
-    type: String,
-    required: true
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
-  },
-  location: {
-    type: String,
-    required: true
+  auth_object: {
+    type: Object
   }
 });
 

@@ -4,7 +4,7 @@ import { Content, Grid } from 'react-mdl'
 
 const Main = props =>
   <Content>
-    <Grid className="dash-content">
+    <Grid className={props.className}>
       {props.children}
     </Grid>
   </Content>

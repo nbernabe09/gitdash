@@ -29,9 +29,6 @@
 
 .name-desc-box {
   margin-left: 16px;
-  margin-right: 32px;
-  width: 90%;
-  /* margin-top: 0 auto; */
 }
 
 .avatar-box {
@@ -97,10 +94,6 @@
 
 .padding-1 {
   padding: 8px !important;
-}
-
-.mdl-card__supporting-text {
-  width: 100% !important;
 }
 
 @media (max-width: 1024px) {

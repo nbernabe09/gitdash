@@ -1,21 +1,26 @@
-import React from "react";
+import React             from "react";
 import "./Body.css";
-import { Layout } from 'react-mdl'
-import Header from "../Header";
-import Drawer from "../Drawer";
-import Main from "../Main";
-import SearchForm from "../SearchForm";
-import Results from "../Results";
 import { Switch, Route } from "react-router-dom";
 
+// Import MDL React Components
+import { Layout } from 'react-mdl'
+
+// Import Project Components
+import NavHeader  from "../NavHeader";
+import NavDrawer  from "../NavDrawer";
+import Main       from "../Main";
+import RepoSearch from "../RepoSearch";
+import RepoViewer from "../RepoViewer";
+
 const Body = props =>
-  <Layout fixedDrawer={true} className="dash-layout">
-    <Header />
-    <Drawer />
-    <Main>
+  <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
+    <NavHeader />
+    <NavDrawer />
+    <Main className="pa-0">
       <Switch>
-        <Route exact path="/" component={SearchForm} />
-        <Route path="/search" component={Results} />
+        <Route exact path="/" component={RepoSearch} />
+        <Route path="/search" component={RepoSearch} />
+        <Route path="/saved"  component={RepoViewer} />
       </Switch>
     </Main>
   </Layout>

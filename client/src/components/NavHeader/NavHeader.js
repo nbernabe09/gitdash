@@ -1,10 +1,10 @@
 import React from "react";
-import "./Header.css";
+import "./NavHeader.css";
 import logo from './gitdash_logo.png'
 import { Header as HeaderMDL, IconButton, Menu, MenuItem, HeaderRow,
          Textfield } from 'react-mdl'
 
-const Header = props =>
+const NavHeader = props =>
   <HeaderMDL>
     <HeaderRow className="dash-header">
       <span className="mdl-layout-title">Search</span>
@@ -27,4 +27,4 @@ const Header = props =>
     </HeaderRow>
   </HeaderMDL>
 
-export default Header;
+export default NavHeader;
