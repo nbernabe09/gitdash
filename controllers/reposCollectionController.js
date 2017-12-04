@@ -27,7 +27,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
     res.end();
   },
-  categories: function(req, res) {
+  categories1: function(req, res) {
     db.RepoCollection
       .findById(req.params.id)
       .populate("repos")
@@ -36,5 +36,49 @@ module.exports = {
         res.json(Array.from(out));
       })
       .catch(err => console.log(err));
-  }
+  },
+  info: function(req, res) {
+    db.RepoCollection
+      .findById(req.params.id)
+      .populate({
+        path: 'repos',
+        populate: {
+          path: 'repo',
+          populate: { path: 'language' }
+        }
+      })
+      .populate({
+        path: 'repos',
+        populate: {
+          path: 'repo',
+          populate: { path: 'owner_id' }
+        }
+      })
+      .then(resp => {
+        const owners      = {};
+        const languages   = {};
+        const categories  = {};
+        for(const x of resp.repos) {
+          let owner = x.repo.owner_id.owner_id + "";
+          if(!owners[owner]) owners[owner] = [];
+          owners[owner].push(x.repo.repo_id);
+
+          let category = x.category + "";
+          if (!categories[category]) categories[category] = [];
+          categories[category].push(x.repo.repo_id);
+
+          let language  = x.repo.language.language + "";
+          if (!languages[language]) languages[language] = [];
+          languages[language].push(x.repo.repo_id);
+        }
+
+        const outObj = {
+          owners: owners,
+          languages: languages,
+          categories: categories
+        }
+        res.json(outObj);
+      })
+      .catch(err => console.log(err));
+  },
 }
