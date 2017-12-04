@@ -1,5 +1,4 @@
 const db = require("../models");
-const mongoose = require("mongoose");
 
 module.exports = {
   get: function(req, res) {
@@ -30,17 +29,24 @@ module.exports = {
       db.RepoOwner
       .findOneAndUpdate({ repo_id: repoObj.repo_id },
                         { repo_id: repoObj.repo_id, owner_id: repoObj.owner_id },
-                        { upsert: true, returnNewDocument: true })
+                        { upsert: true, new: true })
+        .exec()
         .then(e1 => {
+          console.log("?");
+          console.log(e1);
+          console.log("#");
           // Then find or create the RepoLanguage by repo_id
           db.RepoLanguage
             .findOneAndUpdate({ repo_id: repoObj.repo_id },
                               { repo_id: repoObj.repo_id, language: repoObj.language },
-                              { upsert: true, returnNewDocument: true })
+                              { upsert: true, new: true })
             .then(e2 => {
               // Now that you have RepoOwner and RepoLanguage, you can create
               // the repo object and add it to the db
               console.log("?");
+              console.log(e1);
+              console.log("#");
+              
               // add to db if doesnt exist              
               db.Repo
               .findOneAndUpdate({ repo_id: repoObj.repo_id },
@@ -49,21 +55,21 @@ module.exports = {
                                   owner_id: e1._id,
                                   language: e2._id
                                 },
-                                { upsert: true, returnNewDocument: true })
+                                { upsert: true, new: true })
               .then(e3 => {
                 console.log("??");
                 db.RepoCatNode
                   .findByIdAndUpdate(req.params.id,
                                     { repo: e3._id, category: repoObj.category },
-                                    { upsert: true, returnNewDocument: true })
+                                    { upsert: true, new: true })
                   .then(catnode => res.json(catnode))
-                  .catch(err => res.status(422).json(err));
+                  .catch(() => console.log("THIS IS LAME1"));
               })
-              .catch(err => res.status(422).json(err));
+              .catch(err => res.status(422).json(err))
             })
-            .catch(err => res.status(422).json(err));
+            .catch(err => res.status(422).json(err))
         })
-        .catch(err => res.status(422).json(err));
+        .catch(err => res.status(422).json(err))
   },
   remove: function (req, res) {
     db.RepoCatNode
