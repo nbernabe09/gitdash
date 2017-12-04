@@ -9,7 +9,7 @@ router
   .delete(reposCollectionController.remove);
 
 router
-  .route("/categories/:id")
-  .get(reposCollectionController.categories);
+  .route("/info/:id")
+  .get(reposCollectionController.info);
   
 module.exports = router;
