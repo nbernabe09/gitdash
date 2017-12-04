@@ -1,14 +1,37 @@
 const express    = require("express");
 const session    = require("express-session"),
       bodyParser = require("body-parser");
-const routes     = require("./routes");
 const app        = express();
-const cookiePar
 const PORT       = process.env.PORT || 3001;
 const passport   = require("passport");
 
-require("./models/dbInit")
-const db         = require("./models");
+const { dbUri, mong } = require("./models/dbInit");
+const db              = require("./models");
+const MongoStore      = require('connect-mongo')(session);
+
+const DEMO_USER_ID = 1111;
+
+db.User.find({ github_id: DEMO_USER_ID })
+       .then(e1 => {
+         if(e1.length === 0) {
+           db.RepoCollection
+             .create({})
+             .then(e2 => {
+               db.User.create({ github_id: DEMO_USER_ID, repo_collection: e2 })
+             })
+             .catch(err => console.log(err));
+        }
+      })
+  .then(e => {
+    db.User.findOneAndUpdate({ github_id: DEMO_USER_ID }, { github_id: 2222 })
+            .then(d => console.log(d))
+            .catch(err => console.log(err));
+  })
+      .catch(err => console.log(err));
+
+// db.User.findOneAndUpdate({github_id: DEMO_USER_ID}, {github_id: 2222});
+
+const routes = require("./routes");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -18,7 +41,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({ secret: "cats" }));
+app.use(session({
+    store: new MongoStore({ mongooseConnection: mong.connection }),
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());

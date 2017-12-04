@@ -28,3 +28,5 @@ process.on('SIGINT', function () {
     process.exit(0);
   });
 });
+
+module.exports = { dbUri: dbURI, mong: mongoose };

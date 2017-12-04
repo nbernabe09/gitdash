@@ -4,6 +4,8 @@ const reposOwnerController      = require("../../controllers/reposOwnerControlle
 // Matches with "/api/owner/:id"
 router
   .route("/:id")
-  .get(reposOwnerController.getRepoOwner)
-  .put(reposOwnerController.setRepoOwner)
-  .post(reposOwnerController.addRepoOwner)
+  .get(reposOwnerController.get)
+  .put(reposOwnerController.set)
+  .post(reposOwnerController.add);
+
+module.exports = router;

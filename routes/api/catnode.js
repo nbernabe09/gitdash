@@ -3,8 +3,14 @@ const reposCatNodeController    = require("../../controllers/reposCatNodeControl
 
 // Matches with "/api/catnode/:id"
 router
+  .route("/")
+  .post(reposCatNodeController.add)
+
+router
   .route("/:id")
-  .get(reposCatNodeController.getRepoCatNode)
-  .put(reposCatNodeController.setRepoCatNodeCategory)
-  .post(reposCatNodeController.addRepoCatNodeTag)
-  .delete(reposCatNodeController.removeRepoCatNodeTag)
+  .get(reposCatNodeController.get)
+  .put(reposCatNodeController.set)
+  .delete(reposCatNodeController.remove);
+
+
+module.exports = router;

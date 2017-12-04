@@ -1,27 +1,26 @@
 const db = require("../models");
 
 module.exports = {
-  getRepoLanguage: function(req, res) {
-    const repo_id = req.params.id;
+  get: function(req, res) {
     db.RepoLanguage
-      .find({repo_id: repo_id})
-      .then(dbRepoLang => res.json(dbRepoLang))
+      .find({repo_id: req.params.id})
+      .then(lang => res.json(lang))
       .catch(err => res.status(422).json(err));
   },
-  setRepoLanguage: function(req, res) {
+  set: function(req, res) {
     const obj = {
-      repo_id: req.params.id,
-      lang:    req.body.language
+      repo_id:  req.params.id,
+      language: language
     }
     db.RepoLanguage
       .findOneAndUpdate({ repo_id: obj.repo_id }, obj, { upsert: true })
       .catch(err => res.json(err))
       res.end();
   },
-  addRepoLanguage: function(req, res) {
+  add: function(req, res) {
     const obj = {
       repo_id: req.params.id,
-      lang: req.body.language
+      language: language
     }
     db.RepoLanguage
       .findOneAndUpdate({ repo_id: obj.repo_id }, obj, { upsert: true })

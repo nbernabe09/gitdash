@@ -1,7 +1,7 @@
 const db = require("../models");
 
 module.exports = {
-  getUser: function(req, res) {
+  get: function(req, res) {
     db.User
       .find({ _id: req.params.id })
       .then(user => res.json(user))
