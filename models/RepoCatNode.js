@@ -6,8 +6,7 @@ const RepoCatNodeSchema = new Schema({
   repo: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "Repo",
-    set: e => this.repo
+    ref: "Repo"
   },
   category: {
     type: String,
