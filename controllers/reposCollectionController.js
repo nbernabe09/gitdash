@@ -1,5 +1,9 @@
 const db = require("../models");
 
+function gatherUnique() {
+  let m = new Set
+}
+
 module.exports = {
   get: function(req, res) {
     db.RepoCollection
@@ -27,8 +31,10 @@ module.exports = {
     db.RepoCollection
       .findById(req.params.id)
       .populate("repos")
-      .then(resp => console.log(resp))
-      .catch(err => res.status(422).json(err));
-    res.end();
+      .then(resp => {
+        let out = resp.repos.reduce((a, c) => a.add(c.category), new Set());
+        res.json(Array.from(out));
+      })
+      .catch(err => console.log(err));
   }
 }
