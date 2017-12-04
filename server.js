@@ -22,7 +22,14 @@ db.User.find({ github_id: DEMO_USER_ID })
              .catch(err => console.log(err));
         }
       })
+  .then(e => {
+    db.User.findOneAndUpdate({ github_id: DEMO_USER_ID }, { github_id: 2222 })
+            .then(d => console.log(d))
+            .catch(err => console.log(err));
+  })
       .catch(err => console.log(err));
+
+// db.User.findOneAndUpdate({github_id: DEMO_USER_ID}, {github_id: 2222});
 
 const routes = require("./routes");
 

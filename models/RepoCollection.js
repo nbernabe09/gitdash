@@ -6,7 +6,7 @@ const RepoCollectionSchema = new Schema({
   repos: [{
     type: Schema.Types.ObjectId,
     ref: "RepoCatNode"
-  }]
+  }],
 });
 
 const RepoCollection = mongoose.model("RepoCollection", RepoCollectionSchema);

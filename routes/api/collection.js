@@ -8,4 +8,8 @@ router
   .post(reposCollectionController.add)
   .delete(reposCollectionController.remove);
 
+router
+  .route("/categories/:id")
+  .get(reposCollectionController.categories);
+  
 module.exports = router;

@@ -6,19 +6,13 @@ const UserSchema = new Schema({
   github_id: {
     type: Number,
     required: true,
-    unique: true,
-    set: e => {
-      return this.github_id = this.github_id || e;
-    }
+    unique: true
   },
   repo_collection: {
     type: Schema.Types.ObjectId,
     unique: true,
     ref: "RepoCollection",
-    required: true,
-    set: e => {
-      return this.repo_collection = this.repo_collection || e;
-    }
+    required: true
   }
 });
 
