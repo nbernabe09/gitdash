@@ -2,12 +2,12 @@ import axios from "axios";
 
 export default {
   searchUsers: function(term) {
-    return axios.get(`/api/search/users/${term}`);
+    return axios.get(`/api/github/search/users/${term}`);
   },
   searchOrgs: function(term) {
-    return axios.get(`/api/search/orgs/${term}`);
+    return axios.get(`/api/github/search/orgs/${term}`);
   },
   searchRepos: function(term) {
-    return axios.get(`/api/search/repos/${term}`);
+    return axios.get(`/api/github/search/repos/${term}`);
   }
 }

@@ -33,10 +33,11 @@ const genOptions = url => ({
   }
 });
 
-const Repo = require("../../src/Repo.js");
+const Repo = require("../../../src/Repo.js");
 
 function handlerGen(routHand) {
   return (req, res) => {
+    console.log("?")
     let url = routHand(req.params.term);
     console.log(url);
     axios.get(url)
