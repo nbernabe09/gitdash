@@ -11,17 +11,17 @@ function objToQueryParams(obj) {
 }
 
 const usersRoute = term => {
-  const usersOptions = { type: "all", sort: "updated", direction: "desc", access_token: "84e8dc8926a8885fcf2d7f42a297e7cd0f0c4b4d" };
+  const usersOptions = { type: "all", sort: "updated", direction: "desc", access_token: "69c22fd086b86e03de5078515f8c6728df1ad119" };
   return `https://api.github.com/users/${term}/repos${objToQueryParams(usersOptions)}`;
 }
 
 const orgsRoute = term => {
-  const orgsOptions = { type: "all", access_token: "84e8dc8926a8885fcf2d7f42a297e7cd0f0c4b4d" };
+  const orgsOptions = { type: "all", access_token: "69c22fd086b86e03de5078515f8c6728df1ad119" };
   return `https://api.github.com/orgs/${term}/repos${objToQueryParams(orgsOptions)}`;
 }
 
 const reposRoute = term => {
-  const reposOptions = { q: term, sort: "updated", order: "desc", access_token: "84e8dc8926a8885fcf2d7f42a297e7cd0f0c4b4d" };
+  const reposOptions = { q: term, sort: "updated", order: "desc", access_token: "69c22fd086b86e03de5078515f8c6728df1ad119" };
   return `https://api.github.com/search/repositories${objToQueryParams(reposOptions)}`
 }
 
