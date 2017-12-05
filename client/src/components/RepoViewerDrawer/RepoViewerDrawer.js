@@ -17,7 +17,7 @@ import HelpCircleIcon from "mdi-react/HelpCircleIcon";
 
 const RepoViewerDrawer = props =>
   <DrawerMDL className="no-border w-320px">
-    <CategoryTabs />
+    <CategoryTabs {...props} />
   </DrawerMDL>
 
 export default RepoViewerDrawer;

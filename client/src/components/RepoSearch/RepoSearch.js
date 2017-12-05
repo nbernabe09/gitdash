@@ -11,12 +11,16 @@ import Results from "../Results";
 import Main from "../Main";
 
 
-const Content = props =>
+const RepoSearch = props =>
   <Main className="">
     <Switch>
-      <Route path="/" exact component={SearchForm} />
-      <Route path="/search" component={Results}    />
+      <Route path="/" exact render={(props2) => (
+        <SearchForm {...props} />
+      )} />
+      <Route path="/search" render={(props2) => (
+        <Results {...props} />
+          )} />
     </Switch>
   </Main>
 
-export default Content;
+export default RepoSearch;

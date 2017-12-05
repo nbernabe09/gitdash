@@ -8,7 +8,8 @@ class SearchForm extends React.Component {
   state = {
     type: "users",
     term: "",
-    fireRedirect: false
+    fireRedirect: false,
+    repo_collection: null
   }
 
   handleRadio = event => this.setState({ type: event.target.value });
