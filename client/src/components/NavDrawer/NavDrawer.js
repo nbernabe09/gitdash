@@ -23,18 +23,18 @@ const NavDrawer = props =>
         <StarIcon className="black-circle" />
       </div>
         <div className="dash-avatar-dropdown">
-          <span>Welcome, Username</span>
+          <span>Welcome, Demo User</span>
           <div className="mdl-layout-spacer" />
           <Button id="accbtn" ripple={true} className="mdl-button--icon">
               <Icon name="arrow_drop_down" className="material-icons" role="presentation" />
               <span className="visuallyhidden">Accounts</span>
           </Button>
           <Menu valign="bottom" ripple={true} align="right" target="accbtn">
-            <MenuItem>hello@example.com</MenuItem>
-            <MenuItem>info@example.com</MenuItem>
             <MenuItem>
-              <Icon name="add" />
-              Add another account...
+              <a href="">
+                <Icon name="add" />
+                Log In With GitHub
+              </a>
             </MenuItem>
           </Menu>
       </div>
@@ -48,7 +48,7 @@ const NavDrawer = props =>
           <ContentSaveIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Saved</span>
         </a>
-        <a href="">
+        {/* <a href="">
           <ArchiveIcon className="margin-right hover-black" />
           <span className="color-white hover-black">My Repos</span>
         </a>
@@ -59,9 +59,9 @@ const NavDrawer = props =>
         <a href="">
           <CommentAlertOutlineIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Notifications</span>
-        </a>
+        </a> */}
         <Spacer />
-        <a href="">
+        <a href="https://lifesizehuman.github.io/gitland/">
           <HelpCircleIcon className="help_outline margin-right hover-black" />
           <span className="visuallyhidden">Help</span>
         </a>
