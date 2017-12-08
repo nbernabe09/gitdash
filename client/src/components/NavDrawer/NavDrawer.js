@@ -61,7 +61,7 @@ const NavDrawer = props =>
           <span className="color-white hover-black">Notifications</span>
         </a> */}
         <Spacer />
-        <a href="https://lifesizehuman.github.io/gitland/">
+        <a target="_blank" href="https://lifesizehuman.github.io/gitland/">
           <HelpCircleIcon className="help_outline margin-right hover-black" />
           <span className="visuallyhidden">Help</span>
         </a>

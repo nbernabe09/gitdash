@@ -20,7 +20,7 @@ const NavHeader = props =>
         <IconButton name="more_vert" ripple={true} id="hdrbtn" />
         <Menu valign="bottom" align="right" target="hdrbtn">
           <MenuItem>
-            <a href="https://lifesizehuman.github.io/gitland/">
+            <a target="_blank" href="https://lifesizehuman.github.io/gitland/">
               About
             </a>
           </MenuItem>
