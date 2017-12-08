@@ -7,9 +7,7 @@ import { Header as HeaderMDL, IconButton, Menu, MenuItem, HeaderRow,
 const NavHeader = props =>
   <HeaderMDL>
     <HeaderRow className="dash-header">
-      {/*
-      <span className="mdl-layout-title">Search</span>
-      */}
+      <span className="mdl-layout-title"></span>
       <img className="logo" alt="gitdash-logo" src={logo} />
       <div>
         {/*
