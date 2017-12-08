@@ -31,10 +31,8 @@ const NavDrawer = props =>
           </Button>
           <Menu valign="bottom" ripple={true} align="right" target="accbtn">
             <MenuItem>
-              <a href="">
-                <Icon name="add" />
-                Log In With GitHub
-              </a>
+              <Icon name="add" />
+              Log In With GitHub
             </MenuItem>
           </Menu>
       </div>
@@ -48,7 +46,8 @@ const NavDrawer = props =>
           <ContentSaveIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Saved</span>
         </a>
-        {/* <a href="">
+        {/* 
+        <a href="">
           <ArchiveIcon className="margin-right hover-black" />
           <span className="color-white hover-black">My Repos</span>
         </a>
@@ -59,7 +58,8 @@ const NavDrawer = props =>
         <a href="">
           <CommentAlertOutlineIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Notifications</span>
-        </a> */}
+        </a>
+        */}
         <Spacer />
         <a target="_blank" href="https://lifesizehuman.github.io/gitland/">
           <HelpCircleIcon className="help_outline margin-right hover-black" />
