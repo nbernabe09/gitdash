@@ -73,10 +73,14 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/', ensureAuthenticated, function (req, res, next) {
-  ensureAuthenticated(req, res, next);
-  res.redirect('/');
-});
+router.route("*")
+  .get(ensureAuthenticated, function (req, res) {
+    if (process.env.NODE_ENV === "production") {
+      res.sendFile(path.join(__dirname, "../client/public/index.html"));
+    } else {
+      res.sendFile(path.join(__dirname, "../client/build/index.html"));
+    }
+  });
 
 app.get('/auth/github',
   passport.authenticate('github', { scope: ['user:email'] }),
