@@ -19,12 +19,6 @@ class Body extends React.Component {
     loggedIn: false
   }
 
-  componentWillMount() {
-    if(!this.state.loggedIn) {
-      this.props.history.push("/login");
-    }
-  }
-
   render() {
     const { loggedIn } = this.state;
     console.log(loggedIn)
@@ -39,7 +33,7 @@ class Body extends React.Component {
             <Route path="/saved" component={RepoViewer} />
             <Route path="/login" component={Login} />
           </Switch>
-          { loggedIn || <Redirect to="/login" /> }
+          { this.loggedIn || <Redirect to="/login" /> }
         </Main>
       </Layout>
   }
