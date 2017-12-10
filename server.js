@@ -73,22 +73,23 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// router.route("*")
-//   .get(function (req, res) {
-//     if (process.env.NODE_ENV === "production") {
-//       res.sendFile(path.join(__dirname, "./client/public/index.html"));
-//     } else {
-//       res.sendFile(path.join(__dirname, "./client/build/index.html"));
-//     }
-//   });
+router.route("*")
+  .get(function (req, res) {
+    if (process.env.NODE_ENV === "production") {
+      res.sendFile(path.join(__dirname, "./client/public/index.html"));
+    } else {
+      res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    }
+  });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-} else {
-  app.use(express.static("client/public"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// } else {
+//   app.use(express.static("client/public"));
+// }
 
 app.use(routes);
+app.use(router);
 
 app.get('/auth/github',
   passport.authenticate('github', { scope: ['user:email'] }),
