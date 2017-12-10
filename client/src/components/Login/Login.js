@@ -4,6 +4,8 @@ import "./Login.css";
 import ContainerCard from "../ContainerCard";
 
 const Login = props =>
-  <ContainerCard />
+  <ContainerCard>
+    <p>Does this work</p>
+  </ContainerCard>
 
 export default Login;
