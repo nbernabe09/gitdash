@@ -76,7 +76,7 @@ app.use(passport.session());
 app.use(routes);
 
 router.route("*")
-  .get(ensureAuthenticated, function (req, res) {
+  .get(function (req, res) {
     if (process.env.NODE_ENV === "production") {
       res.sendFile(path.join(__dirname, "./client/public/index.html"));
     } else {
