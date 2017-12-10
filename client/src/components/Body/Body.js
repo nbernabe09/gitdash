@@ -22,8 +22,7 @@ class Body extends React.Component {
   render() {
     const { loggedIn } = this.state;
     console.log(loggedIn)
-    return
-      <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
+    return <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
         <NavHeader />
         <NavDrawer />
         <Main className="pa-0">
@@ -33,8 +32,8 @@ class Body extends React.Component {
             <Route path="/saved" component={RepoViewer} />
             <Route path="/login" component={Login} />
           </Switch>
-        </Main>
           { this.state.loggedIn || <Redirect to="/login" /> }
+        </Main>
       </Layout>
   }
 }
