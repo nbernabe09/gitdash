@@ -11,6 +11,7 @@ import NavDrawer  from "../NavDrawer";
 import Main       from "../Main";
 import RepoSearch from "../RepoSearch";
 import RepoViewer from "../RepoViewer";
+import Login      from "../Login";
 
 const Body = props => <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
       <NavHeader />
@@ -20,6 +21,7 @@ const Body = props => <Layout fixedDrawer={true} fixedHeader={true} className="d
           <Route exact path="/" component={RepoSearch} />
           <Route path="/search" component={RepoSearch} />
           <Route path="/saved"  component={RepoViewer} />
+          <Route path="/login"  component={Login} />
         </Switch>
       </Main>
     </Layout>
