@@ -41,17 +41,17 @@ passport.use(new GitHubStrategy({
   }
 ));
 
-db.User.find({ github_id: DEMO_USER_ID })
-       .then(e1 => {
-         if(e1.length === 0) {
-           db.RepoCollection
-             .create({})
-             .then(e2 => {
-               db.User.create({ github_id: DEMO_USER_ID, repo_collection: e2 })
-             })
-             .catch(err => console.log(err));
-        }
-      })
+// db.User.find({ github_id: DEMO_USER_ID })
+//        .then(e1 => {
+//          if(e1.length === 0) {
+//            db.RepoCollection
+//              .create({})
+//              .then(e2 => {
+//                db.User.create({ github_id: DEMO_USER_ID, repo_collection: e2 })
+//              })
+//              .catch(err => console.log(err));
+//         }
+//       })
 
 // db.User.findOneAndUpdate({github_id: DEMO_USER_ID}, {github_id: 2222});
 
