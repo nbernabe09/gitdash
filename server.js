@@ -75,14 +75,20 @@ app.use(passport.session());
 
 app.use(routes);
 
-router.route("*")
-  .get(function (req, res) {
-    if (process.env.NODE_ENV === "production") {
-      res.sendFile(path.join(__dirname, "./client/public/index.html"));
-    } else {
-      res.sendFile(path.join(__dirname, "./client/build/index.html"));
-    }
-  });
+// router.route("*")
+//   .get(function (req, res) {
+//     if (process.env.NODE_ENV === "production") {
+//       res.sendFile(path.join(__dirname, "./client/public/index.html"));
+//     } else {
+//       res.sendFile(path.join(__dirname, "./client/build/index.html"));
+//     }
+//   });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+} else {
+  app.use(express.static("client/public"));
+}
 
 app.get('/auth/github',
   passport.authenticate('github', { scope: ['user:email'] }),
