@@ -78,9 +78,9 @@ app.use(routes);
 router.route("*")
   .get(ensureAuthenticated, function (req, res) {
     if (process.env.NODE_ENV === "production") {
-      res.sendFile(path.join(__dirname, "../client/public/index.html"));
+      res.sendFile(path.join(__dirname, "./client/public/index.html"));
     } else {
-      res.sendFile(path.join(__dirname, "../client/build/index.html"));
+      res.sendFile(path.join(__dirname, "./client/build/index.html"));
     }
   });
 
@@ -104,6 +104,6 @@ app.listen(PORT, function() {
 
 function ensureAuthenticated(req, res, next) {
   console.log("ENSURE AUTHENTICATED");
-  // if (req.isAuthenticated()) { return next(); }
-  // res.redirect('/login')
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
 }
