@@ -1,6 +1,7 @@
 import React             from "react";
 import "./Body.css";
 import { Switch, Route } from "react-router-dom";
+import { Redirect } from 'react-router';
 
 // Import MDL React Components
 import { Layout } from 'react-mdl'
@@ -13,18 +14,35 @@ import RepoSearch from "../RepoSearch";
 import RepoViewer from "../RepoViewer";
 import Login      from "../Login";
 
-const Body = props => <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
-      <NavHeader />
-      <NavDrawer />
-      <Main className="pa-0">
-        <Switch>
-          <Route exact path="/" component={RepoSearch} />
-          <Route path="/search" component={RepoSearch} />
-          <Route path="/saved"  component={RepoViewer} />
-          <Route path="/login"  component={Login} />
-        </Switch>
-      </Main>
-    </Layout>
+class Body extends React.Component {
+  state = {
+    loggedIn: false
+  }
+
+  componentWillMount() {
+    if(!this.state.loggedIn) {
+      this.props.history.push("/login");
+    }
+  }
+
+  render() {
+    const { loggedIn } = this.state;
+    return
+      <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
+        <NavHeader />
+        <NavDrawer />
+        <Main className="pa-0">
+          <Switch>
+            <Route exact path="/" component={RepoSearch} />
+            <Route path="/search" component={RepoSearch} />
+            <Route path="/saved" component={RepoViewer} />
+            <Route path="/login" component={Login} />
+          </Switch>
+          { loggedIn || <Redirect to={`/login`} /> }
+        </Main>
+      </Layout>
+  }
+}
 
 
 export default Body;
