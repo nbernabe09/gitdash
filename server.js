@@ -73,8 +73,6 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(routes);
-
 // router.route("*")
 //   .get(function (req, res) {
 //     if (process.env.NODE_ENV === "production") {
@@ -89,6 +87,8 @@ if (process.env.NODE_ENV === "production") {
 } else {
   app.use(express.static("client/public"));
 }
+
+app.use(routes);
 
 app.get('/auth/github',
   passport.authenticate('github', { scope: ['user:email'] }),
