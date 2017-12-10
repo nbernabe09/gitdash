@@ -73,15 +73,31 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/', ensureAuthenticated, function (req, res) {
+app.get('/', ensureAuthenticated, function (req, res, next) {
+  ensureAuthenticated(req, res, next);
   res.redirect('/');
 });
+
+app.get('/auth/github',
+  passport.authenticate('github', { scope: ['user:email'] }),
+  function (req, res) {
+    // The request will be redirected to GitHub for authentication, so this
+    // function will not be called.
+});
+
+app.get('/auth/github/callback',
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function (req, res) {
+    res.redirect('/');
+  });
+
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 
 function ensureAuthenticated(req, res, next) {
+  console.log("ENSURE AUTHENTICATED");
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
