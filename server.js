@@ -1,4 +1,6 @@
 const express    = require("express");
+const router     = express.Router();
+
 const passport   = require("passport");
 const session    = require("express-session"),
       bodyParser = require("body-parser");
