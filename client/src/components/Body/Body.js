@@ -33,8 +33,8 @@ class Body extends React.Component {
             <Route path="/saved" component={RepoViewer} />
             <Route path="/login" component={Login} />
           </Switch>
-          { this.loggedIn || <Redirect to="/login" /> }
         </Main>
+          { this.state.loggedIn || <Redirect to="/login" /> }
       </Layout>
   }
 }
