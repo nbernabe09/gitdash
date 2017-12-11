@@ -1,7 +1,7 @@
 const router  = require("express").Router();
 const axios = require("axios");
 
-const repoRoute = id => `https://api.github.com/repositories/${id}`?access_token=${process.env.GIT_ACCESS_TOKEN}`;
+const repoRoute = id => `https://api.github.com/repositories/${id}?access_token=${process.env.GIT_ACCESS_TOKEN}`;
 
 const Repo = require("../../../src/Repo.js");
 
