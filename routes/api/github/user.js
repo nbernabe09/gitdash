@@ -1,7 +1,7 @@
 const router  = require("express").Router();
 const axios = require("axios");
 
-const userRoute = id => `https://api.github.com/user/${id}`;
+const userRoute = id => `https://api.github.com/user/${id}?access_token=${process.env.GIT_ACCESS_TOKEN}`;
 
 const Owner = require("../../../src/Owner.js");
 
