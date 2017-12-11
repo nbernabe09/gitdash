@@ -11,5 +11,9 @@ router
 router
   .route("/info/:id")
   .get(reposCollectionController.info);
+
+router
+  .route("/add/:id")
+  .post(reposCollectionController.addRepoByUserId);
   
 module.exports = router;
