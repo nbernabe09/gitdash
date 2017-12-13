@@ -27,9 +27,8 @@ app.use(
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey],
     cookie: {
-      secure: true,
-      httpOnly: true,
-      domain: 'example.com',
+      httpOnly: false,
+      domain: 'gitdash21.herokuapp.com/',
       path: '/'
     }
   })
