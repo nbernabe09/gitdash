@@ -22,7 +22,7 @@ class SearchResults extends React.Component {
   }
 
   saveRepo = repoId => {
-    
+
   }
 
   performSearch = (type, term) => {
@@ -34,9 +34,9 @@ class SearchResults extends React.Component {
     } else {
       promise = API.searchRepos(term);
     }
-    
+
     promise.then(res => {
-      this.setState({ results: res.data });
+      this.setState({ results: res.data })
     })
     .catch(err => console.log(err));
   }
