@@ -36,7 +36,7 @@ app.use(routes);
 app.get('/auth/github', (req, res) => {
   console.log("###");
   console.log(Reflect.ownKeys(req));
-  console.log(req.user);
+  console.log(req.session);
   console.log("$$$");
   }, passport.authenticate('github', {
   successRedirect: '/auth/github/callback',
