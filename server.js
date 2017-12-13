@@ -34,7 +34,7 @@ app.use(passport.session());
 app.use(routes);
 
 app.get('/auth/github', (re, rq, next) => {
-    console.log(Reflect.ownKeys(re));
+    console.log(re.user);
     next();
   },
     passport.authenticate('github',{
