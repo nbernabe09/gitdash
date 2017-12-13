@@ -1,22 +1,20 @@
-const express    = require("express");
+const express = require("express");
 const bodyParser = require("body-parser");
-const app        = express();
-const PORT       = process.env.PORT || 3001;
+const app = express();
+const PORT = process.env.PORT || 3001;
 const DEMO_USER_ID = 1111;
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const path = require('path');
 const mongoose = require('mongoose');
-const passport   = require("passport");
+const passport = require('passport');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongodbURI);
 
 require('./services/passport');
-const db              = require("./models");
+require('./models/User');
 require('./services/passport');
-
-const routes = require("./routes");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -31,8 +29,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(routes);
-
 app.get('/auth/github', passport.authenticate('github', {
   successRedirect: '/',
   scope: ['user:email']
@@ -44,6 +40,13 @@ app.get('/auth/github/callback',
     res.redirect('/');
   });
 
+app.get('/api/current_user', (req, res) => {
+  res.send(req.user);
+})
+app.get('/api/logout', (req, res) => {
+  req.logout();
+  res.send('loggout');
+})
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   const path = require('path');
@@ -57,7 +60,7 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 
@@ -66,20 +69,3 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
-
-mongoose.connection.on('connected', function () {
-  console.log('Mongoose connected to ' + keys.mongodbURI);
-});
-mongoose.connection.on('error', function (err) {
-  console.log('Mongoose connection error: ' + err);
-});
-mongoose.connection.on('disconnected', function () {
-  console.log('Mongoose disconnected');
-});
-
-process.on('SIGINT', function () {
-  mongoose.connection.close(function () {
-    console.log('Mongoose disconnected through app termination');
-    process.exit(0);
-  });
-});
