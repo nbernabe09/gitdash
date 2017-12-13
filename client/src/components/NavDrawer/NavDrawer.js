@@ -18,9 +18,9 @@ const NavDrawer = props =>
     <header className="dash-drawer-header" role="presentation">
       <div className="icon-row">
         <img src="/images/user.jpg" alt="user-avatar" className="dash-avatar" />
-        <SourceForkIcon className="black-circle" />
-        <EyeIcon className="black-circle" />
-        <StarIcon className="black-circle" />
+        <a href="https://www.github.com" target="_blank"><SourceForkIcon className="black-circle" /></a>
+        <a href="/"><EyeIcon className="black-circle" /></a>
+        <a href="/saved"><StarIcon className="black-circle" /></a>
       </div>
         <div className="dash-avatar-dropdown">
           <span>Welcome, Username</span>
