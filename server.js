@@ -33,10 +33,12 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/auth/github', (req, res, next) => {
-  next();
-  }, passport.authenticate('github', {
-  scope: ['user:email']
+app.get('/auth/github', passport.authenticate('github', (re, rq) => {
+    console.log(Reflect.ownKeys(re));
+    
+  } ,{
+    scope: ['user:email'],
+    failureRedirect: '/login'
 }));
 
 app.get('/auth/github/callback',
