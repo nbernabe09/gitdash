@@ -44,7 +44,6 @@ app.get('/auth/github/callback',
 passport.authenticate('github', { failureRedirect: '/login' }),
 function (req, res) {
   console.log(req.user);
-  res.cookie('test','2121', { maxAge: 900000, http: false, secure: false })  
   res.redirect('/');
 });
 
