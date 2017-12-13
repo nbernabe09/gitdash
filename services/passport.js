@@ -7,15 +7,13 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 
 passport.serializeUser(function (user, done) {
-  done(null, user.id);
+  done(null, user._id);
 });
 
-passport.deserializeUser(function (obj, done) {
-  done(null, user.id);
-  
-  // User.findById(obj).then(user => {
-  //   done(null, user);
-  // });
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
+  });
 });
 
 passport.use(new GitHubStrategy({

@@ -18,6 +18,7 @@ const session    = require("express-session");
 
 const db              = require("./models");
 const MongoStore      = require('connect-mongo')(session);
+require('./services/passport');
 
 const routes = require("./routes");
 
