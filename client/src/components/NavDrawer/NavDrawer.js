@@ -52,18 +52,18 @@ const NavDrawer = props =>
           <ArchiveIcon className="margin-right hover-black" />
           <span className="color-white hover-black">My Repos</span>
         </a>
-        <a href="">
+        {/* <a href="">
           <ChartAreaSplineIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Stats</span>
         </a>
         <a href="">
           <CommentAlertOutlineIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Notifications</span>
-        </a>
+        </a> */}
         <Spacer />
-        <a href="">
+        <a href="https://github.com/ALMaclaine/gitdash" target="_blank">
           <HelpCircleIcon className="help_outline margin-right hover-black" />
-          <span className="visuallyhidden">Help</span>
+          <span className="color-white hover-black">GitHub Repo</span>
         </a>
     </Navigation>
   </DrawerMDL>
