@@ -8,8 +8,6 @@ const User           = require('../models/User');
 const RepoCollection = require('../models/RepoCollection');
 
 passport.serializeUser(function (user, done) {
-  console.log("SERIALIZE");
-  console.log(user);
   User.find({ github_id: user.id })
       .then(e1 => {
         if(e1.length === 0) {
@@ -18,23 +16,22 @@ passport.serializeUser(function (user, done) {
             .then(e2 => {
               User.create({ github_id: user.id, repo_collection: e2 },
                 (err, result) => {
-                  console.log(result);
+                  done(null, result.id);
                 }
               )
             })
             .catch(err => console.log(err));
        } else {
-         console.log("ELSE");
-         console.log(e1);
+         done(null, e1.id);
        }
      })
      .catch(err => console.log(err));
-  done(null, user.id);
 });
 
 passport.deserializeUser(function (id, done) {
-  console.log("^^^%$"+id);
   User.findById(id, function (err, user) {
+    console.log("DESERIALIZE");
+    console.log(user);
     done(err, user);
   });
 });
