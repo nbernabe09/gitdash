@@ -11,9 +11,11 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (obj, done) {
-  User.findById(obj).then(user => {
-    done(null, user);
-  });
+  done(null, user.id);
+  
+  // User.findById(obj).then(user => {
+  //   done(null, user);
+  // });
 });
 
 passport.use(new GitHubStrategy({

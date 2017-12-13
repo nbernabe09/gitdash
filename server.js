@@ -16,8 +16,6 @@ require('./services/passport');
 
 const session    = require("express-session");
 
-const GitHubStrategy = require('passport-github2').Strategy;
-
 const db              = require("./models");
 const MongoStore      = require('connect-mongo')(session);
 
