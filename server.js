@@ -4,7 +4,7 @@ const app        = express();
 const PORT       = process.env.PORT || 3001;
 const DEMO_USER_ID = 1111;
 const keys = require('./config/keys');
-
+const cookieSession = require('cookie-session');
 const path = require('path');
 const mongoose = require('mongoose');
 const passport   = require("passport");
@@ -13,27 +13,21 @@ mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongodbURI);
 
 require('./services/passport');
-
-const session    = require("express-session");
-
 const db              = require("./models");
-const MongoStore      = require('connect-mongo')(session);
 require('./services/passport');
 
 const routes = require("./routes");
-
-// Serve up static assets (usually on heroku)
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
-app.use(session({
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  secret: keys.cookieKey,
-  resave: false,
-  saveUninitialized: false
-}));
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -45,10 +39,10 @@ app.get('/auth/github', passport.authenticate('github', {
 }));
 
 app.get('/auth/github/callback',
-passport.authenticate('github', { failureRedirect: '/login' }),
-function (req, res) {
-  res.redirect('/');
-});
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function (req, res) {
+    res.redirect('/');
+  });
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
