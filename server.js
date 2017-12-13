@@ -35,6 +35,8 @@ app.use(routes);
 
 app.get('/auth/github', (re, rq, next) => {
     console.log(re.user);
+    console.log(re.isAuthenticated);
+    console.log(re.logout);
     next();
   },
     passport.authenticate('github',{
