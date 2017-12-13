@@ -1,9 +1,15 @@
 .center {
   margin: 0 auto;
-  width: 90%;
   padding: 0;
+  max-width: 65%;
 }
 
 .mt {
   margin-top: 8px;
+}
+
+.desc {
+  overflow: auto;
+  margin: 0 auto;
+  white-space: nowrap
 }
