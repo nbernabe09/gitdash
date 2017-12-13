@@ -25,6 +25,13 @@
   margin-left: 24px;
 }
 
+.mdi-icon.black-circle:hover {
+  transform-origin: center;
+  transition-duration: 1s;
+  transform: rotate(360deg);
+}
+
+
 .mdi-icon.margin-right {
   margin-right: 32px;
   fill: white;
