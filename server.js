@@ -52,15 +52,15 @@ function (req, res) {
 
 const path = require('path');
 if (process.env.NODE_ENV === "production") {
-  // app.use(express.static("client/build"));
-  app.get('*', ensureAuthenticated, (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-  })
+  app.use(express.static("client/build"));
+  // app.get('*', ensureAuthenticated, (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  // })
 } else {
-  // app.use(express.static("client/public"));
-  app.get('*', ensureAuthenticated, (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "public", "index.html"))
-  })
+  app.use(express.static("client/public"));
+  // app.get('*', ensureAuthenticated, (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, "client", "public", "index.html"))
+  // })
 }
 
 app.listen(PORT, function() {
