@@ -7,10 +7,21 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 
 passport.serializeUser(function (user, done) {
-  console.log("!!!!!!!!");
-  console.log("SERIALIZE");
-  console.log(user);
-  console.log("!!!!!!!!");
+  User.find({ github_id: user.id })
+      .then(e1 => {
+        if(e1.length === 0) {
+          db.RepoCollection
+            .create({})
+            .then(e2 => {
+              db.User.create({ github_id: user.id, repo_collection: e2 },
+                (err, result) => {
+                  console.log(result);
+                }
+              )
+            })
+            .catch(err => console.log(err));
+       }
+     })
   done(null, user.id);
 });
 
@@ -36,8 +47,6 @@ passport.use(new GitHubStrategy({
       // represent the logged-in user.  In a typical application, you would want
       // to associate the GitHub account with a user record in your database,
       // and return that user instead.
-      console.log("NEXT+TICK");
-      console.log(profile);
       return done(null, profile);
     });
   }
