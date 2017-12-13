@@ -33,13 +33,7 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/auth/github', (re, rq, next) => {
-    console.log(re.user);
-    console.log(re.isAuthenticated());
-    // console.log(re.logout);
-    next();
-  },
-    passport.authenticate('github',{
+app.get('/auth/github', passport.authenticate('github', {
     scope: ['user:email'],
     failureRedirect: '/login'
 }));
@@ -51,15 +45,9 @@ function (req, res) {
 });
 
 if (process.env.NODE_ENV === "production") {
-  // app.use(express.static("client/build"));
-  app.get('*', ensureAuthenticated, (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-  })
+  app.use(express.static("client/build"));
 } else {
-  // app.use(express.static("client/public"));
-  app.get('*', ensureAuthenticated, (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "public", "index.html"))
-  })
+  app.use(express.static("client/public"));
 }
 
 app.listen(PORT, function() {
