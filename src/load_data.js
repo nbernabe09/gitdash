@@ -239,7 +239,6 @@ const seed = [
   }
 ];
 
-
 seed.map(info => {
   axios.post("http://127.0.0.1:3001/api/catnode/", info)
     .then(function (resp) {
