@@ -19,7 +19,7 @@ const genRow = (obj, props) => {
   return <tr>
     <td className="mdl-data-table__cell--non-numeric">{obj.owner.login}</td>
     <td className="mdl-data-table__cell--non-numeric">{obj.name}</td>
-    <td className="mdl-data-table__cell--non-numeric">{obj.description}</td>
+    {/* <td className="mdl-data-table__cell--non-numeric">{obj.description}</td> */}
     <td className="mdl-data-table__cell--non-numeric">Framework</td>
     <td className="mdl-data-table__cell--non-numeric">{obj.language}</td>
     <td className="mdl-data-table__cell--non-numeric">
@@ -86,7 +86,7 @@ function processData(props) {
 
 const RepoViewerTable = props =>
   <DataTable
-    className="mdl-shadow--2dp center"
+    className="mdl-shadow--2dp center desc"
     selectable
     shadow={0}
     rowKeyColumn="repo_id"
@@ -94,7 +94,7 @@ const RepoViewerTable = props =>
   >
     <TableHeader name="owner">Owner</TableHeader>
     <TableHeader name="name">Name</TableHeader>
-    <TableHeader name="description">Description</TableHeader>
+    {/* <TableHeader name="description">Description</TableHeader> */}
     <TableHeader name="category">Category</TableHeader>
     <TableHeader name="language">Language</TableHeader>
     <TableHeader name="clone_url">Clone</TableHeader>
