@@ -33,7 +33,7 @@ const RepoCard = props =>
       </button>
     </div>
     <div className="mdl-card__actions flex mdl-card--border padding-1">
-      <span>Updated: {formatDate(new Date(props.repoObj.updated_at))}</span>
+      <span className="updatedAt">Updated: {formatDate(new Date(props.repoObj.updated_at))}</span>
       <div className="mdl-layout-spacer"></div>
       <button className="mdl-button mr v-sml mdl-js-button mdl-button--fab mdl-button--colored" >
         <CloudDownloadIcon  className="orange-circle"/>

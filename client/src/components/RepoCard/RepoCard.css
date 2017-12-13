@@ -13,7 +13,14 @@
   margin-bottom: 8px;
 }
 
+.mdi-icon.orange-circle:hover {
+  transform: rotate(360deg);
+  transform-origin: center;
+  transition-duration: 1s;
+}
+
 .mr {
+  margin-top: 3px;
   margin-right: 16px !important;
 }
 
@@ -24,7 +31,7 @@
 }
 
 .avatar-box, .dash-avatar {
-  padding: 4px;
+  padding: 6px;
 }
 
 .name-desc-box {
@@ -32,7 +39,7 @@
 }
 
 .avatar-box {
-  width: 64px;
+  width: 70px;
 }
 
 .code-tag {
@@ -92,8 +99,12 @@
   padding: 0px !important;
 }
 
+.updatedAt {
+  margin-top: 3px;
+}
+
 .padding-1 {
-  padding: 8px !important;
+  padding: 10px !important;
 }
 
 @media (max-width: 1024px) {
