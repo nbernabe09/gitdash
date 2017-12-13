@@ -10,19 +10,19 @@ const NavHeader = props =>
       <span className="mdl-layout-title">Search</span>
       <img className="logo" alt="gitdash-logo" src={logo} />
       <div>
-        <Textfield 
-          expandable={true} 
+        <Textfield
+          expandable={true}
           expandableIcon="search"
           className="mdl-textfield--expandable"
           label="Enter your query..."
         >
         </Textfield>
-        <IconButton name="more_vert" ripple={true} id="hdrbtn" />
+        {/* <IconButton name="more_vert" ripple={true} id="hdrbtn" />
         <Menu valign="bottom" align="right" target="hdrbtn">
           <MenuItem>About</MenuItem>
           <MenuItem>Contact</MenuItem>
           <MenuItem>Legal information</MenuItem>
-        </Menu>
+        </Menu> */}
       </div>
     </HeaderRow>
   </HeaderMDL>
