@@ -26,11 +26,8 @@ app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey],
-    cookie: {
-      httpOnly: false,
-      domain: 'gitdash21.herokuapp.com/',
-      path: '/'
-    }
+    name: 'session',
+    httpOnly: false
   })
 );
 app.use(passport.initialize());
@@ -46,7 +43,8 @@ app.get('/auth/github', passport.authenticate('github', {
 app.get('/auth/github/callback',
 passport.authenticate('github', { failureRedirect: '/login' }),
 function (req, res) {
-  req.session.message = 'hi'
+  console.log(req.user);
+  res.cookie('test','2121', { maxAge: 900000, http: false, secure: false })  
   res.redirect('/');
 });
 
