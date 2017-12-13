@@ -26,7 +26,12 @@ app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey],
-    httpOnly: false
+    cookie: {
+      secure: true,
+      httpOnly: true,
+      domain: 'example.com',
+      path: '/'
+    }
   })
 );
 app.use(passport.initialize());
