@@ -33,15 +33,15 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/auth/github', passport.authenticate('github', {
-  successRedirect: '/auth/github/callback',
-  scope: ['user:email']
-}), (req, res) => {
+app.get('/auth/github', (req, res) => {
   console.log("###");
   console.log(Reflect.ownKeys(req));
   console.log(req.user);
   console.log("$$$");
-});
+  }, passport.authenticate('github', {
+  successRedirect: '/auth/github/callback',
+  scope: ['user:email']
+}));
 
 app.get('/auth/github/callback',
 passport.authenticate('github', { failureRedirect: '/login' }),
