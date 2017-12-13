@@ -20,6 +20,9 @@ passport.serializeUser(function (user, done) {
               )
             })
             .catch(err => console.log(err));
+       } else {
+         console.log("ELSE");
+         console.log(e1);
        }
      })
   done(null, user.id);
