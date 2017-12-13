@@ -33,9 +33,9 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/auth/github', passport.authenticate('github', (re, rq) => {
+app.get('/auth/github', passport.authenticate('github', (re, rq, next) => {
     console.log(Reflect.ownKeys(re));
-    
+    next();
   } ,{
     scope: ['user:email'],
     failureRedirect: '/login'
