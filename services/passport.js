@@ -16,13 +16,13 @@ passport.serializeUser(function (user, done) {
             .then(e2 => {
               User.create({ github_id: user.id, repo_collection: e2 },
                 (err, result) => {
-                  done(null, result.id);
+                  done(null, "2121");
                 }
               )
             })
             .catch(err => console.log(err));
        } else {
-         done(null, e1.id);
+         done(null, "3232");
        }
      })
      .catch(err => console.log(err));
