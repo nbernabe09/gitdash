@@ -16,7 +16,7 @@ import Login      from "../Login";
 
 class Body extends React.Component {
   state = {
-    loggedIn: true
+    loggedIn: false
   }
 
   render() {
