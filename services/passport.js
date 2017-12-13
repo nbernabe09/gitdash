@@ -7,6 +7,10 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 
 passport.serializeUser(function (user, done) {
+  console.log("!!!!!!!!");
+  console.log("SERIALIZE");
+  console.log(user);
+  console.log("!!!!!!!!");
   done(null, user.id);
 });
 
