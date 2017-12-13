@@ -18,10 +18,8 @@ const session    = require("express-session");
 
 const GitHubStrategy = require('passport-github2').Strategy;
 
-require("./models/dbInit");
 const db              = require("./models");
 const MongoStore      = require('connect-mongo')(session);
-
 
 const routes = require("./routes");
 
