@@ -18,9 +18,9 @@ const NavDrawer = props =>
     <header className="dash-drawer-header" role="presentation">
       <div className="icon-row">
         <img src="/images/user.jpg" alt="user-avatar" className="dash-avatar" />
-        <SourceForkIcon className="black-circle" />
-        <EyeIcon className="black-circle" />
-        <StarIcon className="black-circle" />
+        <a href="https://www.github.com" target="_blank"><SourceForkIcon className="black-circle" /></a>
+        <a href="/"><EyeIcon className="black-circle" /></a>
+        <a href="/saved"><StarIcon className="black-circle" /></a>
       </div>
         <div className="dash-avatar-dropdown">
           <span>Welcome, Username</span>
@@ -52,18 +52,18 @@ const NavDrawer = props =>
           <ArchiveIcon className="margin-right hover-black" />
           <span className="color-white hover-black">My Repos</span>
         </a>
-        <a href="">
+        {/* <a href="">
           <ChartAreaSplineIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Stats</span>
         </a>
         <a href="">
           <CommentAlertOutlineIcon className="margin-right hover-black" />
           <span className="color-white hover-black">Notifications</span>
-        </a>
+        </a> */}
         <Spacer />
-        <a href="">
+        <a href="https://github.com/ALMaclaine/gitdash" target="_blank">
           <HelpCircleIcon className="help_outline margin-right hover-black" />
-          <span className="visuallyhidden">Help</span>
+          <span className="color-white hover-black">GitHub Repo</span>
         </a>
     </Navigation>
   </DrawerMDL>
