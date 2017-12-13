@@ -36,6 +36,8 @@ passport.use(new GitHubStrategy({
       // represent the logged-in user.  In a typical application, you would want
       // to associate the GitHub account with a user record in your database,
       // and return that user instead.
+      console.log("NEXT+TICK");
+      console.log(profile);
       return done(null, profile);
     });
   }
