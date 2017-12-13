@@ -42,9 +42,9 @@ const RepoCard = props =>
         <PaperclipIcon className="orange-circle" />
       </button>
       <span className="mr">Forks: {props.repoObj.forks}</span>
-      <span className="mr">Watches: {props.repoObj.watchers_count}</span>
+      {/* <span className="mr">Watches: {props.repoObj.watchers_count}</span> */}
       <span className="mr">Stars: {props.repoObj.stargazers_count}</span>
-      <span className="mr">Issues: {props.repoObj.open_issues}</span>
+      {/* <span className="mr">Issues: {props.repoObj.open_issues}</span> */}
     </div>
   </div>
 
