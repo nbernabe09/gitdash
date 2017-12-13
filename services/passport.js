@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 
 passport.serializeUser(function (user, done) {
+  console.log("SERIALIZE");
+  console.log(user);
   User.find({ github_id: user.id })
       .then(e1 => {
         if(e1.length === 0) {
@@ -25,6 +27,7 @@ passport.serializeUser(function (user, done) {
          console.log(e1);
        }
      })
+     .catch(err => console.log(err));
   done(null, user.id);
 });
 
