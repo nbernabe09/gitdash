@@ -53,12 +53,12 @@ function (req, res) {
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   const path = require('path');
-  app.get('*', (req, res) => {
+  app.get('*', ensureAuthenticated, (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
   })
 } else {
   app.use(express.static("client/public"));
-  app.get('*', (req, res) => {
+  app.get('*', ensureAuthenticated, (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "public", "index.html"))
   })
 }
@@ -68,7 +68,7 @@ app.listen(PORT, function() {
 });
 
 function ensureAuthenticated(req, res, next) {
-  console.log("ENSURE AUTHENTICATED");
+  console.log("ENSURE");
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
