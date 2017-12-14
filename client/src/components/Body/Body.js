@@ -30,20 +30,20 @@ function getCookie(cname) {
   return "";
 }
 
-function loggedIn() {
-  return getCookie("session") !== "";
-}
-
 class Body extends React.Component {
   state = {
     loggedIn: false
+  }
+
+  loggedIn() {
+    return getCookie("session") !== "";
   }
 
   render() {
     return <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
         <NavHeader />
         <NavDrawer />
-        { console.log(loggedIn()) }
+        { console.log(this.loggedIn()) }
         <Main className="pa-0">
           <Switch>
             <Route exact path="/" component={RepoSearch} />
@@ -51,6 +51,7 @@ class Body extends React.Component {
             <Route path="/saved" component={RepoViewer} />
             <Route path="/login" component={Login} />
           </Switch>
+          <div onClick={this.loggedIn}>WORDS</div>
         </Main>
       </Layout>
   }
