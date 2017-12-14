@@ -37,14 +37,15 @@ app.use(passport.session());
 app.use(routes);
 
 app.get('/auth/github', passport.authenticate('github', {
-  successRedirect: '/auth/github/callback',
   scope: ['user:email']
 }));
 
-app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res, next) => {
-  console.log("CALLBACK");
-  res.redirect("/");
-});
+app.get('/auth/github/callback', passport.authenticate('github', 
+  { failureRedirect: '/login' }), 
+  (req, res, next) => {
+    res.redirect("/");
+  }
+);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
