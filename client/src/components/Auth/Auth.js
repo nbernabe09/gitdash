@@ -3,14 +3,18 @@ import "./Auth.css";
 import ContainerCard from "../ContainerCard";
 import axios from 'axios';
 
+function refreshPage() {
+  window.location.reload();
+}
+
 class Auth extends Component {
-  signInUser() {
-    axios.get('/auth/github/login').then(res => console.log(res.data));
+  componentWillMount() {
+    refreshPage();
   }
 
   render() {
     return (
-      <div>{this.signInUser()}</div>
+      <div />
     )
   }
 }
