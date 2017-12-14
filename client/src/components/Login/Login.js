@@ -7,7 +7,7 @@ import { Redirect } from 'react-router';
 class Login extends Component {
   render() {
     return (
-      <ContainerCard title="login">>
+      <ContainerCard title="login">
             <button
               className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
               onClick={() => <Redirect to="/auth/github" />}
