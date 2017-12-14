@@ -36,12 +36,11 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/auth/github', (req, res, next) => {
+app.get('/auth/github', passport.authenticate('github',{
+  scope: ['user:email']
+}, (req, res, next) => {
   console.log(req.user);
   next();
-}, passport.authenticate('github',
-{
-  scope: ['user:email']
 }));
 
 app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res, next) => {
