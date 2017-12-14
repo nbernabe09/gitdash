@@ -41,12 +41,7 @@ app.get('/auth/github/', passport.authenticate('github', {
 }));
 
 app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res, next) => {
-  console.log("CALLBACK");
   res.redirect("/");
-});
-
-app.get('/user', passport.authenticate('github', { failureRedirect: '/' }), (req, res, next) => {
-  console.log(req.user);
 });
 
 if (process.env.NODE_ENV === "production") {

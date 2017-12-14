@@ -6,15 +6,11 @@ import API from "../../utils/API";
 
 class SearchResults extends React.Component {
   state = {
-    results: [],
-    user_id: 1111,
-    repo_collection: null
+    results: []
   }
 
   componentDidMount() {
     this.performSearch(this.props.type, this.props.term);
-    API.getUser(this.state.user_id)
-      .then(e => this.setState({ repo_collection: e.data[0].repo_collection }));
   }
 
   renderCards = res => {
