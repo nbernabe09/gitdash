@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const TokenSchema = new Schema({
   github_id: {
     type: Number,
     required: true,
@@ -15,6 +15,6 @@ const UserSchema = new Schema({
   }
 });
 
-const User = mongoose.model("User", UserSchema);
+const Token = mongoose.model("Token", TokenSchema);
 
-module.exports = User;
+module.exports = Token;
