@@ -16,8 +16,6 @@ passport.serializeUser(function (user, done) {
             .then(e2 => {
               User.create({ github_id: user.id, repo_collection: e2 },
                 (err, result) => {
-                  console.log("RESULTS");
-                  console.log(result);
                   done(null, result);
                 }
               )

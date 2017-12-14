@@ -13,7 +13,7 @@ import NavDrawer  from "../NavDrawer";
 import Main       from "../Main";
 import RepoSearch from "../RepoSearch";
 import RepoViewer from "../RepoViewer";
-import LoginRoute      from "../LoginRoute";
+import Login      from "../Login";
 
 function getCookie(cname) {
   var name = cname + "=";
@@ -35,12 +35,6 @@ function loggedIn() {
   return getCookie("session") !== "";
 }
 
-let redirect = true;
-
-function shouldRedirect() {
-  return !loggedIn() && redirect; 
-}
-
 class Body extends React.Component {
   render() {
     return <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
@@ -48,14 +42,12 @@ class Body extends React.Component {
         <NavDrawer />
         <Main className="pa-0">
           <Switch>
-            <Route exact path="/" component={RepoSearch} />
+            <Route exact path="/" component={loggedIn() ? RepoSearch : Login} />
             <Route path="/search" component={RepoSearch} />
             <Route path="/saved" component={RepoViewer} />
-            <Route path="/login" component={LoginRoute} />
             <Route exact path="/auth/github" component={Auth} />
           </Switch>
         </Main>
-        { shouldRedirect() || ( redirect = false || <Redirect to="/login" />) }
       </Layout>
   }
 }
