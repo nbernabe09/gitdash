@@ -12,7 +12,7 @@ import NavDrawer  from "../NavDrawer";
 import Main       from "../Main";
 import RepoSearch from "../RepoSearch";
 import RepoViewer from "../RepoViewer";
-import Login      from "../Login";
+import LoginRoute      from "../LoginRoute";
 
 function getCookie(cname) {
   var name = cname + "=";
@@ -44,7 +44,7 @@ class Body extends React.Component {
             <Route exact path="/" component={RepoSearch} />
             <Route path="/search" component={RepoSearch} />
             <Route path="/saved" component={RepoViewer} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={LoginRoute} />
           </Switch>
         </Main>
         { this.loggedIn() || <Redirect to="/login" />}
