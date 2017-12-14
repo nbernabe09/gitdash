@@ -10,37 +10,7 @@ function refreshPage() {
 
 class Auth extends Component {
   componentDidMount() {
-    console.log("DIS WORKS");
     refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
-    // refreshPage();
   }
 
   render() {
