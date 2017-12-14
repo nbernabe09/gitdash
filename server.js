@@ -44,11 +44,12 @@ app.get('/auth/github', (req, res, next) => {
     failureRedirect: '/login'
 }));
 
-app.get('/auth/github/callback', (req, res, next) => {
-  if(!req.user) next();
+app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res, next) => {
+  console.log("CALLBACK");
+  console.log(req.user);
+  if (!req.user) next();
   else res.redirect("/");
-},
-passport.authenticate('github', { failureRedirect: '/login' }));
+});
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
