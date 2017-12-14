@@ -10,6 +10,35 @@ function refreshPage() {
 class Auth extends Component {
   componentWillMount() {
     refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
+    refreshPage();
   }
 
   render() {
