@@ -2,6 +2,7 @@ import React             from "react";
 import "./Body.css";
 import { Switch, Route } from "react-router-dom";
 import { Redirect } from 'react-router';
+import Auth from '../Auth';
 
 // Import MDL React Components
 import { Layout } from 'react-mdl'
@@ -45,6 +46,7 @@ class Body extends React.Component {
             <Route path="/search" component={RepoSearch} />
             <Route path="/saved" component={RepoViewer} />
             <Route path="/login" component={LoginRoute} />
+            <Route exact path="/auth/github" component={Auth} />
           </Switch>
         </Main>
         { this.loggedIn() || <Redirect to="/login" />}
