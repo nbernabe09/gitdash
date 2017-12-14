@@ -1,6 +1,8 @@
 const router  = require("express").Router();
 const axios = require("axios");
 
+const Token = require("../../../models/Token.js");
+
 function objToQueryParams(obj) {
   const keys = Reflect.ownKeys(obj);
   return keys.reduce((a,c,i) => {
@@ -30,7 +32,8 @@ const Repo = require("../../../src/Repo.js");
 function handlerGen(routHand) {
   return (req, res) => {
     console.log("!SEARCH");
-    console.log(req.user);
+    Token.findOne({ github_id: req.github_id })
+         .then(e => console.log("token!!", e));
     console.log("!SEARCH");
     let url = routHand(req.params.term);
     axios.get(url)
