@@ -30,6 +30,7 @@ app.use(
     httpOnly: false
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -55,12 +56,6 @@ if (process.env.NODE_ENV === "production") {
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
-
-function ensureAuthenticated(req, res, next) {
-  console.log("ENSURE");
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
-}
 
 mongoose.connection.on('connected', function () {
   console.log('Mongoose connected to ' + keys.mongodbURI);

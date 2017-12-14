@@ -39,19 +39,25 @@ class Body extends React.Component {
     return getCookie("session") !== "";
   }
 
+  renderLogin() {
+    return <Route path="/login" component={Login} />;
+  }
+
+  renderMenu() {
+    return [
+      <Route exact path="/" component={RepoSearch} />,
+      <Route path="/search" component={RepoSearch} />,
+      <Route path="/saved" component={RepoViewer} />,
+    ]
+  }
+
   render() {
     return <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
         <NavHeader />
         <NavDrawer />
-        { console.log("&^&^&^&") }
-        { console.log(this.loggedIn()) }
-        { console.log("^%^%^%^%") }
         <Main className="pa-0">
           <Switch>
-            <Route exact path="/" component={RepoSearch} />
-            <Route path="/search" component={RepoSearch} />
-            <Route path="/saved" component={RepoViewer} />
-            <Route path="/login" component={Login} />
+            { this.loggedIn() ? this.renderMenu() : this.renderLogin() }
           </Switch>
         </Main>
       </Layout>
