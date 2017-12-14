@@ -4,7 +4,8 @@ const keys = require('../config/keys.js');
 
 const mongoose = require('mongoose');
 
-const User           = require('../models/User');
+const User = require('../models/User');
+const Token = require('../models/Token');
 const RepoCollection = require('../models/RepoCollection');
 
 passport.serializeUser(function (user, done) {
@@ -43,7 +44,14 @@ passport.use(new GitHubStrategy({
   function (accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
     console.log('token', accessToken);
+    console.log(profile);
+    Token.findOneAndUpdate({ github_id: profile.github_id }, 
+                           { github_id: github_id, token: accessToken },
+                           { upsert: true, new: true })
+         .catch(err => res.status(422).json(err));
 
+    Token.findOne({ github_id: profile.github_id })
+         .then(e => console.log(e));
     process.nextTick(function () {
       // To keep the example simple, the user's GitHub profile is returned to
       // represent the logged-in user.  In a typical application, you would want
