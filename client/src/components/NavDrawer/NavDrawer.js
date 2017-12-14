@@ -9,8 +9,6 @@ import StarIcon                from 'mdi-react/StarIcon';
 import MagnifyIcon             from "mdi-react/MagnifyIcon";
 import ContentSaveIcon         from "mdi-react/ContentSaveIcon";
 import ArchiveIcon             from "mdi-react/ArchiveIcon";
-import ChartAreaSplineIcon     from "mdi-react/ChartAreasplineIcon";
-import CommentAlertOutlineIcon from "mdi-react/CommentAlertOutlineIcon";
 import HelpCircleIcon          from "mdi-react/HelpCircleIcon";
 
 const NavDrawer = props =>
@@ -18,7 +16,7 @@ const NavDrawer = props =>
     <header className="dash-drawer-header" role="presentation">
       <div className="icon-row">
         <img src="/images/user.jpg" alt="user-avatar" className="dash-avatar" />
-        <a href="https://www.github.com" target="_blank"><SourceForkIcon className="black-circle" /></a>
+        <a href="https://www.github.com"><SourceForkIcon className="black-circle" /></a>
         <a href="/"><EyeIcon className="black-circle" /></a>
         <a href="/saved"><StarIcon className="black-circle" /></a>
       </div>
@@ -61,7 +59,7 @@ const NavDrawer = props =>
           <span className="color-white hover-black">Notifications</span>
         </a> */}
         <Spacer />
-        <a href="https://github.com/ALMaclaine/gitdash" target="_blank">
+        <a href="https://github.com/ALMaclaine/gitdash">
           <HelpCircleIcon className="help_outline margin-right hover-black" />
           <span className="color-white hover-black">GitHub Repo</span>
         </a>

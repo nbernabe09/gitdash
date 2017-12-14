@@ -2,9 +2,6 @@ import React             from "react";
 import { Switch, Route } from "react-router-dom";
 import "./RepoSearch.css";
 
-// Import MDL React Components
-import { Layout } from 'react-mdl'
-
 // Import Project Components
 import SearchForm from "../SearchForm";
 import Results from "../Results";

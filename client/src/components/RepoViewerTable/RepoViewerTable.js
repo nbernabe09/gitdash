@@ -1,71 +1,13 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
 import "./RepoViewerTable.css";
 
 // Import MDL React Components
-import { Layout, DataTable, TableHeader } from 'react-mdl'
-
-// Import Project Components
-import RepoViewerDrawer from "../RepoViewerDrawer";
-import RepoViewerHeader from "../RepoViewerHeader";
-import Main from "../Main";
+import { DataTable, TableHeader } from 'react-mdl'
 
 import PaperclipIcon from 'mdi-react/PaperclipIcon';
 
 import copy from 'copy-to-clipboard';
 const copyArrow = words => copy(words);
-
-const genRow = (obj, props) => {
-  return <tr>
-    <td className="mdl-data-table__cell--non-numeric">{obj.owner.login}</td>
-    <td className="mdl-data-table__cell--non-numeric">{obj.name}</td>
-    {/* <td className="mdl-data-table__cell--non-numeric">{obj.description}</td> */}
-    <td className="mdl-data-table__cell--non-numeric">Framework</td>
-    <td className="mdl-data-table__cell--non-numeric">{obj.language}</td>
-    <td className="mdl-data-table__cell--non-numeric">
-      <button onClick={() => copyArrow(obj.clone_url)} className="mdl-button mt v-sml mdl-js-button mdl-button--fab mdl-button--colored" >
-        <PaperclipIcon className="orange-circle" />
-      </button>
-    </td>
-  </tr>
-}
-
-let data = [
-  {
-    owner: "Facebook",
-    name: "React",
-    description: "A declarative, efficient and flexible javascript library for building user interfaces.",
-    repo_id: 1,
-    language: "HTML",
-    clone_url: "https://github.com/ALMaclaine/gitdash"
-  },
-  {
-    owner: "Facebook",
-    name: "React",
-    description: "A declarative, efficient and flexible javascript library for building user interfaces.",
-    repo_id: 2,
-    language: "HTML",
-    clone_url: "https://github.com/ALMaclaine/gitdash"
-  },
-  {
-    owner: "Facebook",
-    name: "React",
-    description: "A declarative, efficient and flexible javascript library for building user interfaces.",
-    repo_id: 3,
-    language: "HTML",
-    clone_url: "https://github.com/ALMaclaine/gitdash"
-  },
-  {
-    owner: "Facebook",
-    name: "React",
-    description: "A declarative, efficient and flexible javascript library for building user interfaces.",
-    repo_id: 4,
-    language: "HTML",
-    clone_url: <button onClick={() => copyArrow("The info")} className="mdl-button mt v-sml mdl-js-button mdl-button--fab mdl-button--colored" >
-      <PaperclipIcon className="orange-circle" />
-    </button>
-  }
-]
 
 function processData(props) {
   const data = props.data;

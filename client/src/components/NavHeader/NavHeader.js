@@ -1,8 +1,7 @@
 import React from "react";
 import "./NavHeader.css";
 import logo from './gitdash_logo.png'
-import { Header as HeaderMDL, IconButton, Menu, MenuItem, HeaderRow,
-         Textfield } from 'react-mdl'
+import { Header as HeaderMDL, HeaderRow, Textfield } from 'react-mdl'
 
 const NavHeader = props =>
   <HeaderMDL>

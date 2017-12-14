@@ -1,22 +1,6 @@
 import React  from "react";
 import "./CategoryTabs.css";
-import { RadioGroup, Radio, Tabs, TabBar, Tab } from 'react-mdl'
-import { Redirect } from 'react-router';
-
-const genItem = (props, e) => {
-  return (
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-        e
-      </span>
-      <span class="mdl-list__item-secondary-action">
-        <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-1">
-          <input type="radio" id="list-option-1" class="mdl-radio__button" name="options" value="1" defaultChecked={false}/>
-        </label>
-      </span>
-    </li>
-  )
-}
+import { RadioGroup, Radio } from 'react-mdl';
 
 const CategoryTabs = props => {
   return (
