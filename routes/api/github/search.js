@@ -32,7 +32,7 @@ const Repo = require("../../../src/Repo.js");
 function handlerGen(routHand) {
   return (req, res) => {
     console.log("!SEARCH");
-    Token.findOne({ github_id: req.github_id })
+    Token.findOne({ github_id: req.user.github_id })
          .then(e => console.log("token!!", e));
     console.log("!SEARCH");
     let url = routHand(req.params.term);
