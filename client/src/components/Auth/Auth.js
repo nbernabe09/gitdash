@@ -3,15 +3,7 @@ import "./Auth.css";
 import ContainerCard from "../ContainerCard";
 import axios from 'axios';
 
-function refreshPage() {
-  window.location.reload();
-}
-
 class Auth extends Component {
-  componentWillMount() {
-    refreshPage();
-  }
-
   render() {
     return (
       <div />
