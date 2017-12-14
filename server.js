@@ -37,6 +37,7 @@ app.use(passport.session());
 app.use(routes);
 
 app.get('/auth/github', (req, res, next) => {
+  console.log(req.user);
   if (req.user) res.redirect('/')
   else next();
 },passport.authenticate('github', {
