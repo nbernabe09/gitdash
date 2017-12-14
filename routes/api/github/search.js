@@ -29,6 +29,9 @@ const Repo = require("../../../src/Repo.js");
 
 function handlerGen(routHand) {
   return (req, res) => {
+    console.log("!SEARCH");
+    console.log(req.user);
+    console.log("!SEARCH");
     let url = routHand(req.params.term);
     axios.get(url)
     .then(function (resp) {
