@@ -25,32 +25,28 @@ app.use(bodyParser.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
+    keys: [keys.cookieKey],
+    name: 'session',
+    httpOnly: false
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(routes);
 
-app.get('/auth/github', (re, rq, next) => {
-    console.log(re.user);
-    next();
-  },
-    passport.authenticate('github',{
-    scope: ['user:email'],
-    failureRedirect: '/login'
+app.get('/auth/github', passport.authenticate('github', {
+  scope: ['user:email']
 }));
 
-app.get('/auth/github/callback',
-passport.authenticate('github', { failureRedirect: '/login' }),
-function (req, res) {
-  res.redirect('/');
+app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res, next) => {
+  console.log("CALLBACK");
+  res.redirect("/");
 });
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  const path = require('path');
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
   })
@@ -64,12 +60,6 @@ if (process.env.NODE_ENV === "production") {
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
-
-function ensureAuthenticated(req, res, next) {
-  console.log("ENSURE AUTHENTICATED");
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
-}
 
 mongoose.connection.on('connected', function () {
   console.log('Mongoose connected to ' + keys.mongodbURI);
