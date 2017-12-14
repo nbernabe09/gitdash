@@ -8,7 +8,7 @@ function refreshPage() {
 }
 
 class Auth extends Component {
-  componentWillMount() {
+  componentDidMount() {
     refreshPage();
     refreshPage();
     refreshPage();
