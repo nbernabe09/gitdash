@@ -31,10 +31,6 @@ function getCookie(cname) {
 }
 
 class Body extends React.Component {
-  state = {
-    loggedIn: false
-  }
-
   loggedIn() {
     return getCookie("session") !== "";
   }
