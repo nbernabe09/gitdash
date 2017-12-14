@@ -43,7 +43,9 @@ class Body extends React.Component {
     return <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
         <NavHeader />
         <NavDrawer />
+        { console.log("&^&^&^&") }
         { console.log(this.loggedIn()) }
+        { console.log("^%^%^%^%") }
         <Main className="pa-0">
           <Switch>
             <Route exact path="/" component={RepoSearch} />
@@ -51,7 +53,6 @@ class Body extends React.Component {
             <Route path="/saved" component={RepoViewer} />
             <Route path="/login" component={Login} />
           </Switch>
-          <div onClick={this.loggedIn}>WORDS</div>
         </Main>
       </Layout>
   }
