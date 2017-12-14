@@ -45,12 +45,12 @@ passport.use(new GitHubStrategy({
     // asynchronous verification, for effect...
     console.log('token', accessToken);
     console.log(profile);
-    Token.findOneAndUpdate({ github_id: profile.github_id }, 
-                           { github_id: github_id, token: accessToken },
+    Token.findOneAndUpdate({ github_id: profile.id }, 
+                           { github_id: profile.id, token: accessToken },
                            { upsert: true, new: true })
          .catch(err => res.status(422).json(err));
 
-    Token.findOne({ github_id: profile.github_id })
+    Token.findOne({ github_id: profile.id })
          .then(e => console.log(e));
     process.nextTick(function () {
       // To keep the example simple, the user's GitHub profile is returned to
