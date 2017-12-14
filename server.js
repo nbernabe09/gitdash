@@ -36,17 +36,19 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/auth/github', passport.authenticate('github', {
+app.get('/auth/github', (req, res, next) => {
+  if (req.user) res.redirect('/')
+  else next();
+},passport.authenticate('github', {
     scope: ['user:email'],
     failureRedirect: '/login'
 }));
 
-app.get('/auth/github/callback',
-passport.authenticate('github', { failureRedirect: '/login' }),
-function (req, res) {
-  console.log("WE GET HERE?");
-  res.redirect('/');
-});
+app.get('/auth/github/callback', (req, res, next) => {
+  if(req.user) res.redirect('/')
+  else next();
+},
+passport.authenticate('github', { failureRedirect: '/login' }));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
