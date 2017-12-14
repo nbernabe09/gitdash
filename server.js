@@ -46,6 +46,7 @@ app.get('/auth/github', (req, res, next) => {
 
 app.get('/auth/github/callback', (req, res, next) => {
   console.log("CALLBACK");
+  console.log(req.query);
   console.log(req.user);
   if(req.user) res.redirect('/')
   else next();
