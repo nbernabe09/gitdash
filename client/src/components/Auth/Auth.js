@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class Auth extends Component {
   signInUser() {
-    axios.get('/auth/github').then(res => console.log(res.data));
+    axios.get('/auth/github/login').then(res => console.log(res.data));
   }
 
   render() {
