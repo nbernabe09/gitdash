@@ -44,7 +44,7 @@ class Auth extends Component {
   }
 
   render() {
-    return <div>TESTING</div>
+    return <Redirect to="http://gitdash21.herokuapp.com/auth/github" />
   }
 }
 
