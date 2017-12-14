@@ -38,7 +38,7 @@ app.use(routes);
 
 app.get('/auth/github', passport.authenticate('github', {
   scope: ['user:email'],
-      successRedirect: '/auth/github/callback'
+  successRedirect: '/auth/github/callback'
 }));
 
 app.get('/auth/github/callback', passport.authenticate('github', 
