@@ -31,11 +31,17 @@ function getCookie(cname) {
   return "";
 }
 
-class Body extends React.Component {
-  loggedIn() {
-    return getCookie("session") !== "";
-  }
+function loggedIn() {
+  return getCookie("session") !== "";
+}
 
+let redirect = true;
+
+function shouldRedirect() {
+  return !loggedIn() && redirect; 
+}
+
+class Body extends React.Component {
   render() {
     return <Layout fixedDrawer={true} fixedHeader={true} className="dash-layout">
         <NavHeader />
@@ -49,7 +55,7 @@ class Body extends React.Component {
             <Route exact path="/auth/github" component={Auth} />
           </Switch>
         </Main>
-        { this.loggedIn() || <Redirect to="/login" />}
+        { shouldRedirect() || ( redirect = false || <Redirect to="/login" />) }
       </Layout>
   }
 }
