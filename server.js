@@ -36,7 +36,11 @@ app.use(passport.session());
 
 app.use(routes);
 
-app.get('/auth/github', passport.authenticate('github', {
+app.get('/auth/github', passport.authenticate('github', (req, res, next) => { 
+  console.log(req.user);
+  next();
+},
+{
   scope: ['user:email']
 }));
 

@@ -42,7 +42,6 @@ class Body extends React.Component {
         <Main className="pa-0">
           <Switch>
             <Route exact path="/" component={RepoSearch} />
-            <Route exact path="/auth/github" component={RepoSearch} />
             <Route path="/search" component={RepoSearch} />
             <Route path="/saved" component={RepoViewer} />
             <Route path="/login" component={Login} />
