@@ -56,7 +56,7 @@ class SearchResults extends React.Component {
 
   render() {
     return ( <ContainerCard title="Search Results">
-        {this.state.results.length !== 0 ? this.renderCards(this.state.results, this.state.triggerModal.bind(this)) : null}
+        {this.state.results.length !== 0 ? this.renderCards(this.state.results, this.triggerModal.bind(this)) : null}
       <div>
         <Button colored onClick={this.handleOpenDialog.bind(this)} raised ripple>Show Dialog</Button>
         <Dialog open={this.state.openDialog}>
