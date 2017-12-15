@@ -48,6 +48,7 @@ class SearchResults extends React.Component {
     }
     console.log(returnObj);
     API.addCatNode(returnObj);
+    this.handleCloseDialog();
   }
 
   handleText = event => this.setState({ currentCategory: event.target.value });
@@ -82,7 +83,7 @@ class SearchResults extends React.Component {
             </div>
           </DialogContent>
           <DialogActions>
-            <Button type='button' onClick={this.handleCloseDialog.bind(this)}>Submit</Button>
+            <Button type='button' onClick={this.addRepo.bind(this)}>Submit</Button>
           </DialogActions>
         </Dialog>
       </div>
