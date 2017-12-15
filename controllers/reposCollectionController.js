@@ -12,6 +12,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   add: function (req, res) {
+    console.log(req.user);
+    console.log(req.body);
     db.RepoCollection
       .findByIdAndUpdate({ _id: req.user.repo_collection },
                          { $push: { repos: req.body.catnode_id } },
