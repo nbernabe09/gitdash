@@ -14,7 +14,6 @@ module.exports = {
                          { upsert: false, new: true }, (err, resp) => {
                            res.json(resp);
                          })
-    res.end();
   },
   addRepoByUserId: function(req, res) {
     db.User.find({ github_id: req.params.id })
