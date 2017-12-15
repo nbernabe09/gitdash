@@ -91,56 +91,47 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   info: function(req, res) {
-    console.log("INFO");
-    console.log("INFO");
-    console.log("INFO");
-    console.log("INFO");
-    console.log("INFO");
-    console.log("INFO");
-    console.log("INFO");
-    console.log("INFO");
-    console.log(req.user);
-    // db.RepoCollection
-    //   .findById(req.user.repo_collection)
-    //   .populate({
-    //     path: 'repos',
-    //     populate: {
-    //       path: 'repo',
-    //       populate: { path: 'language' }
-    //     }
-    //   })
-    //   .populate({
-    //     path: 'repos',
-    //     populate: {
-    //       path: 'repo',
-    //       populate: { path: 'owner_id' }
-    //     }
-    //   })
-    //   .then(resp => {
-    //     const owners      = {};
-    //     const languages   = {};
-    //     const categories  = {};
-    //     for(const x of resp.repos) {
-    //       let owner = x.repo.owner_id.owner_id + "";
-    //       if(!owners[owner]) owners[owner] = [];
-    //       owners[owner].push(x.repo.repo_id);
+    db.RepoCollection
+      .findById(req.user.repo_collection)
+      .populate({
+        path: 'repos',
+        populate: {
+          path: 'repo',
+          populate: { path: 'language' }
+        }
+      })
+      .populate({
+        path: 'repos',
+        populate: {
+          path: 'repo',
+          populate: { path: 'owner_id' }
+        }
+      })
+      .then(resp => {
+        const owners      = {};
+        const languages   = {};
+        const categories  = {};
+        for(const x of resp.repos) {
+          let owner = x.repo.owner_id.owner_id + "";
+          if(!owners[owner]) owners[owner] = [];
+          owners[owner].push(x.repo.repo_id);
 
-    //       let category = x.category + "";
-    //       if (!categories[category]) categories[category] = [];
-    //       categories[category].push(x.repo.repo_id);
+          let category = x.category + "";
+          if (!categories[category]) categories[category] = [];
+          categories[category].push(x.repo.repo_id);
 
-    //       let language  = x.repo.language.language + "";
-    //       if (!languages[language]) languages[language] = [];
-    //       languages[language].push(x.repo.repo_id);
-    //     }
+          let language  = x.repo.language.language + "";
+          if (!languages[language]) languages[language] = [];
+          languages[language].push(x.repo.repo_id);
+        }
 
-    //     const outObj = {
-    //       owners: owners,
-    //       languages: languages,
-    //       categories: categories
-    //     }
-    //     res.json(outObj);
-    //   })
-    //   .catch(err => res.status(422).json(err));
+        const outObj = {
+          owners: owners,
+          languages: languages,
+          categories: categories
+        }
+        res.json(outObj);
+      })
+      .catch(err => res.status(422).json(err));
   },
 }
