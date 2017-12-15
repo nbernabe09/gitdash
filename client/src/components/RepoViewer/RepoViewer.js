@@ -35,6 +35,8 @@ class RepoViewer extends React.Component {
     API.getCollectionInfo()
        .then(resp => {
          let data = resp.data;
+         console.log("DATA");
+         console.log(data);
          let cats = catGen(data);
          this.setState({ data: data });
          let names = cats.owners;
