@@ -12,7 +12,7 @@ router
   .delete(reposCollectionController.remove);
 
 router
-  .route("/info/:id")
+  .route("/info/")
   .get(reposCollectionController.info);
 
 router
