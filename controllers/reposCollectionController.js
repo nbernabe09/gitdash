@@ -1,9 +1,5 @@
 const db = require("../models");
 
-function gatherUnique() {
-  let m = new Set
-}
-
 module.exports = {
   get: function(req, res) {
     db.RepoCollection
@@ -12,11 +8,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   add: function (req, res) {
-    console.log(req.user);
-    console.log(req.body);
     db.RepoCollection
       .findByIdAndUpdate({ _id: req.user.repo_collection },
-                         { $push: { repos: catnode._id } },
+                         { $push: { repos: req.body.catnode_id } },
                          { upsert: false, new: true }, (err, res) => {
                            res.json(res);
                          })

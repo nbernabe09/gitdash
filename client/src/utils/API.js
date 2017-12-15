@@ -25,9 +25,8 @@ export default {
   addCatNode: function(obj) {
     axios.post("/api/catnode/", obj)
       .then(function (resp) {
-        console.log("IN RESP");
-        console.log(resp);
         axios.post(`/api/collection/`, { catnode_id: resp.data._id })
+             .then(e => console.log("RESP",e));
       })
       .catch(err => console.log(err))
   }
