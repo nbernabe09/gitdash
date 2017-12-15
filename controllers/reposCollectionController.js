@@ -92,6 +92,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   info: function(req, res) {
+    console.log("INFO");
+    console.log(req.user);
     db.RepoCollection
       .findById(req.user.repo_collection)
       .populate({
