@@ -11,7 +11,7 @@ export default {
     return axios.get(`/api/github/search/repos/${term}`);
   },
   getCollectionInfo: function() {
-    return axios.get(`/api/collection/info`);
+    return axios.get(`/api/info/`);
   },
   getUserName: function(id) {
     return axios.get(`/api/github/user/${id}`);
