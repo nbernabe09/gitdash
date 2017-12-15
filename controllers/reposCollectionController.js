@@ -1,9 +1,5 @@
 const db = require("../models");
 
-function gatherUnique() {
-  let m = new Set
-}
-
 module.exports = {
   get: function(req, res) {
     db.RepoCollection
@@ -15,8 +11,9 @@ module.exports = {
     db.RepoCollection
       .findByIdAndUpdate({ _id: req.user.repo_collection },
                          { $push: { repos: req.body.catnode_id } },
-                         { upsert: false })
-    res.end();
+                         { upsert: false, new: true }, (err, resp) => {
+                           res.json(resp);
+                         })
   },
   addRepoByUserId: function(req, res) {
     db.User.find({ github_id: req.params.id })
@@ -95,7 +92,7 @@ module.exports = {
   },
   info: function(req, res) {
     db.RepoCollection
-      .findById(req.params.id)
+      .findById(req.user.repo_collection)
       .populate({
         path: 'repos',
         populate: {

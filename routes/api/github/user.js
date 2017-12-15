@@ -3,6 +3,7 @@ const axios = require("axios");
 
 const userRoute = (id, token) => `https://api.github.com/user/${id}?access_token=84e8dc8926a8885fcf2d7f42a297e7cd0f0c4b4d`;
 
+const Token = require("../../../models/Token.js");
 const Owner = require("../../../src/Owner.js");
 
 function handlerGen(routHand) {

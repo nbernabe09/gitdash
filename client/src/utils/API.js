@@ -10,8 +10,8 @@ export default {
   searchRepos: function(term) {
     return axios.get(`/api/github/search/repos/${term}`);
   },
-  getCollectionInfo: function(id) {
-    return axios.get(`/api/collection/info/${id}`);
+  getCollectionInfo: function() {
+    return axios.get(`/api/info/`);
   },
   getUserName: function(id) {
     return axios.get(`/api/github/user/${id}`);
@@ -25,9 +25,7 @@ export default {
   addCatNode: function(obj) {
     axios.post("/api/catnode/", obj)
       .then(function (resp) {
-        console.log("IN RESP");
-        console.log(resp);
-        axios.post(`/api/collection/`, { catnode_id: resp.data._id })
+        axios.post(`/api/collection/`, { catnode_id: resp.data._id });
       })
       .catch(err => console.log(err))
   }
