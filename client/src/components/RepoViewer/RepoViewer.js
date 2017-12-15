@@ -15,7 +15,7 @@ import RepoViewerTable from "../RepoViewerTable";
 import invertObject from "../../invertObject.js";
 
 
-const cats = (data) => Reflect.ownKeys(data).reduce((a, c) => {
+const catGen = (data) => Reflect.ownKeys(data).reduce((a, c) => {
     a[`${c}`] = Reflect.ownKeys(data[c]);
     return a;
   }, {});
@@ -34,37 +34,37 @@ class RepoViewer extends React.Component {
     this.setState({ activeTab: "owners" });
     API.getCollectionInfo()
        .then(resp => {
-         console.log(resp);
+         let data = resp.data;
+         let cats = catGen(data);
+         this.setState({ data: data });
+         let names = cats.owners;
+         let proms = names.map(e => API.getUserName(e));
+         Promise.all(proms)
+           .then(names => {
+             names = names.map(e => e.data.login);
+             let dat = {
+               owners: names,
+               languages: cats.languages,
+               categories: cats.categories
+             }
+             this.setState({ cats: dat });
+             this.setState({ activeSelection: names[0] })
+             data.owner_names = names;
+             data.owner_ids = Reflect.ownKeys(data["owners"]);
+             let invertCategories = invertObject(data.categories);
+             data.vert_cat = invertCategories;
+             this.setState({ data: data });
+             let currentIds = this.returnData(this.state.activeTab, this.state.activeSelection);
+             let proms = currentIds.map(e => API.getRepo(e));
+             Promise.all(proms)
+               .then(names => {
+                 let cur_data = names.map(e => e.data);
+                 this.setState({ current_data: cur_data })
+               })
+               .catch(err => console.log(err))
+           })
+           .catch(err => console.log(err))
        });
-    // this.setState({ data: data });
-    
-    // let names = cats.owners;
-    // let proms = names.map(e => API.getUserName(e));
-    // Promise.all(proms)
-    //   .then(names => {
-    //     names = names.map(e => e.data.login);
-    //     let dat = {
-    //       owners: names,
-    //       languages: cats.languages,
-    //       categories: cats.categories
-    //     }
-    //     this.setState({ cats: dat });
-    //     this.setState({activeSelection: names[0]})
-    //     data.owner_names = names;
-    //     data.owner_ids = Reflect.ownKeys(data["owners"]);
-    //     let invertCategories = invertObject(data.categories);
-    //     data.vert_cat = invertCategories;
-    //     this.setState({ data: data });
-    //     let currentIds = this.returnData(this.state.activeTab, this.state.activeSelection);
-    //     let proms = currentIds.map(e => API.getRepo(e));
-    //     Promise.all(proms)
-    //       .then(names => {
-    //         let cur_data = names.map(e => e.data);
-    //         this.setState({ current_data: cur_data })
-    //       })
-    //       .catch(err => console.log(err))
-    //   })
-    //   .catch(err => console.log(err))
   }
 
   setTab = e => {
