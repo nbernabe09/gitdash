@@ -66,9 +66,9 @@ class SearchResults extends React.Component {
         <Dialog open={this.state.openDialog}>
           <DialogTitle>Save Repo</DialogTitle>
           <DialogContent>
+            <h2>Category</h2>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input className="mdl-textfield__input" type="text" name="beginDate" value={this.state.term} onChange={this.handleText.bind(this)} id="Date1" />
-              <label className="mdl-textfield__label show-on-foc" htmlFor="Date">Category</label>
             </div>
           </DialogContent>
           <DialogActions>
