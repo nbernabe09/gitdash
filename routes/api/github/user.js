@@ -11,7 +11,7 @@ function handlerGen(routHand) {
   return (req, res) => {
     Token.findOne({ github_id: req.user.github_id })
       .then(e => {
-        let url = routHand(req.user.github_id, e.token);
+        let url = routHand(req.params.id, e.token);
         axios.get(url)
           .then(function (resp) {
             res.json(new Owner(resp.data));
