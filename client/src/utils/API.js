@@ -11,7 +11,7 @@ export default {
     return axios.get(`/api/github/search/repos/${term}`);
   },
   getCollectionInfo: function() {
-    return axios.get(`/api/collection/info/`);
+    return axios.get(`/api/collection/info`);
   },
   getUserName: function(id) {
     return axios.get(`/api/github/user/${id}`);
@@ -25,8 +25,7 @@ export default {
   addCatNode: function(obj) {
     axios.post("/api/catnode/", obj)
       .then(function (resp) {
-        axios.post(`/api/collection/`, { catnode_id: resp.data._id })
-             .then(e => resizeBy.json(e));
+        axios.post(`/api/collection/`, { catnode_id: resp.data._id });
       })
       .catch(err => console.log(err))
   }

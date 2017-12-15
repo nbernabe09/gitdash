@@ -34,8 +34,8 @@ class RepoViewer extends React.Component {
     this.setState({ activeTab: "owners" });
     API.getCollectionInfo()
        .then(resp => {
-        console.log(resp);
-       })
+         console.log(resp);
+       });
     // this.setState({ data: data });
     
     // let names = cats.owners;
