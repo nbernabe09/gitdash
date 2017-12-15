@@ -46,6 +46,7 @@ class SearchResults extends React.Component {
     }
     API.addCatNode(returnObj);
     this.handleCloseDialog();
+    this.setState({ currentCategory: null });
   }
 
   handleText = event => this.setState({ currentCategory: event.target.value });
