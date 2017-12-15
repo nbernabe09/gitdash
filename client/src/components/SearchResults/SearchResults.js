@@ -46,7 +46,6 @@ class SearchResults extends React.Component {
       category: this.state.currentCategory,
       repo_id:  this.state.currentSelection.repo_id
     }
-    console.log(returnObj);
     API.addCatNode(returnObj);
     this.handleCloseDialog();
   }

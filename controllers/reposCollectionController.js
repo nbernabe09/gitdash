@@ -6,14 +6,15 @@ function gatherUnique() {
 
 module.exports = {
   get: function(req, res) {
-    console.log(req.session);
     db.RepoCollection
       .find({ _id: req.params.id })
       .then(ret => res.json(ret))
       .catch(err => res.status(422).json(err));
   },
   add: function (req, res) {
+    console.log("ADD");
     console.log(req.user);
+    console.log("BODY");
     console.log(req.body);
     // db.RepoCollection
     //   .findByIdAndUpdate({ _id: req.user.repo_collection },
