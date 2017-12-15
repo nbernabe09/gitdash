@@ -12,21 +12,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   add: function (req, res) {
-    console.log("ADD");
-    console.log(req.user);
-    console.log("BODY");
-    console.log(req.body);
-    // db.RepoCollection
-    //   .findByIdAndUpdate({ _id: req.user.repo_collection },
-    //                      { $push: { repos: req.body.catnode_id } },
-    //                      { upsert: false })
+    db.RepoCollection
+      .findByIdAndUpdate({ _id: req.user.repo_collection },
+                         { $push: { repos: req.body.catnode_id } },
+                         { upsert: false })
     res.end();
   },
   addRepoByUserId: function(req, res) {
     db.User.find({ github_id: req.params.id })
            .then(user => {
              let colId = user[0].repo_collection;
-             console.log(colId);
              const repoObj = {
                repo_id: req.body.repo_id,
                owner_id: req.body.owner,
