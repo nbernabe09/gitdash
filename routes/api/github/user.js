@@ -7,7 +7,7 @@ const userRoute = (id, token) => `https://api.github.com/user?access_token=${tok
 const Token = require("../../../models/Token.js");
 const Owner = require("../../../src/Owner.js");
 
-function handlerGen(routHand) {
+function handlerGen1(routHand) {
   return (req, res) => {
     Token.findOne({ github_id: req.user.github_id })
       .then(e => {
@@ -24,10 +24,27 @@ function handlerGen(routHand) {
   }
 }
 
+function handlerGen2(routHand) {
+  return (req, res) => {
+    Token.findOne({ github_id: req.user.github_id })
+      .then(e => {
+        let url = routHand(req.params.id, e.token);
+        axios.get(url)
+          .then(function (resp) {
+            res.json(resp.data);
+          })
+          .catch((err) => {
+            console.log(err);
+            res.json(err);
+          })
+      })
+  }
+}
+
 router.route("/")
-  .get(handlerGen(userRoute));
+  .get(handlerGen2(userRoute));
 
 router.route("/:id")
-  .get(handlerGen(userIdRoute));
+  .get(handlerGen1(userIdRoute));
 
 module.exports = router;

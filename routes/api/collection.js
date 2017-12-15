@@ -12,10 +12,6 @@ router
   .delete(reposCollectionController.remove);
 
 router
-  .route("/info")
-  .get(reposCollectionController.info);
-
-router
   .route("/add/:id")
   .post(reposCollectionController.addRepoByUserId);
   
