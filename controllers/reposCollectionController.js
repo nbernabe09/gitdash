@@ -13,10 +13,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   add: function (req, res) {
-    db.RepoCollection
-      .findByIdAndUpdate({ _id: req.params.id },
-                         { $push: { repos: req.body.catnode_id } },
-                         { upsert: false })
+    console.log(req.user);
+    console.log(req.body);
+    // db.RepoCollection
+    //   .findByIdAndUpdate({ _id: req.user.repo_collection },
+    //                      { $push: { repos: req.body.catnode_id } },
+    //                      { upsert: false })
     res.end();
   },
   addRepoByUserId: function(req, res) {

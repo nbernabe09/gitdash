@@ -22,4 +22,15 @@ export default {
   getUser: function (id) {
     return axios.get(`/api/user/${id}`);
   },
+  addCatNode: function(obj) {
+    console.log("addCatNode");
+    console.log(obj);
+    axios.post("/api/catnode/", obj)
+      .then(function (resp) {
+        console.log("IN RESP");
+        console.log(resp);
+        axios.post(`/api/collection/`, { catnode_id: resp.data._id })
+      })
+      .catch(err => console.log(err))
+  }
 }

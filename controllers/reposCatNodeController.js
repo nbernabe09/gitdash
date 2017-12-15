@@ -17,7 +17,6 @@ module.exports = {
       res.end();
   },
   add: function(req, res) {
-      console.log(req.user);
       const repoObj = {
         repo_id: req.body.repo_id,
         owner_id: req.user.github_id,
@@ -51,7 +50,7 @@ module.exports = {
               .then(e3 => {
                 db.RepoCatNode
                   .create({ repo: e3._id, category: repoObj.category })
-                  .then(catnode => res.json(catnode))
+                  .then(catnode => console.log(catnode))
                   .catch(err => res.status(422).json(err));
               })
               .catch(err => res.status(422).json(err))
