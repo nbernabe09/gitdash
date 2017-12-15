@@ -42,6 +42,7 @@ const RepoCard = props =>
                                       owner_id: props.repoObj.owner_id.owner_id
                                     })}
                            className="orange-circle"/>
+                          {console.log(props.repoObj)}
       </button>
       <button onClick={() => copyArrow(props.repoObj.clone_url)} className="mdl-button mr v-sml mdl-js-button mdl-button--fab mdl-button--colored" >
         <PaperclipIcon className="orange-circle" />
