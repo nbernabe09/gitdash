@@ -16,8 +16,10 @@ module.exports = {
     console.log(req.body);
     db.RepoCollection
       .findByIdAndUpdate({ _id: req.user.repo_collection },
-                         { $push: { repos: req.body.catnode_id } },
-                         { upsert: false })
+                         { $push: { repos: catnode._id } },
+                         { upsert: false, new: true }, (err, res) => {
+                           res.json(res);
+                         })
     res.end();
   },
   addRepoByUserId: function(req, res) {
