@@ -16,6 +16,9 @@ export default {
   getUserName: function(id) {
     return axios.get(`/api/github/user/${id}`);
   },
+  getUserInfo: function() {
+    return axios.get(`/api/github/user/`);
+  },
   getRepo: function (id) {
     return axios.get(`/api/github/repo/${id}`);
   },
