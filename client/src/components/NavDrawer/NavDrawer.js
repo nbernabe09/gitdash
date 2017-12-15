@@ -41,7 +41,9 @@ class NavDrawer extends React.Component {
   componentWillMount() {
     if(loggedIn()) {
       API.getUserInfo()
-         .then(e => console.log(e));
+         .then(e => {
+           this.setState({ name: e.data.login, image: e.data.avatar_url });
+         });
     }
   }
 
