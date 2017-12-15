@@ -39,6 +39,7 @@ const RepoCard = props =>
         <CloudDownloadIcon onClick={() => props.handle({
                                       repo_id: props.repoObj.repo_id,
                                       language: props.repoObj.language,
+                                      owner_id: props.repoObj.owner_id.owner_id
                                     })}
                            className="orange-circle"/>
       </button>
