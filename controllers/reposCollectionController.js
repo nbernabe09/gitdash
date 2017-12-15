@@ -113,7 +113,7 @@ module.exports = {
         const categories  = {};
         for(const x of resp.repos) {
           let owner = x.repo.owner_id.owner_id + "";
-          console.log("OWNER", owner);
+          console.log("REPO", x.repo);
           if(!owners[owner]) owners[owner] = [];
           owners[owner].push(x.repo.repo_id);
 
