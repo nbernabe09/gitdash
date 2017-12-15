@@ -26,7 +26,7 @@ export default {
     axios.post("/api/catnode/", obj)
       .then(function (resp) {
         axios.post(`/api/collection/`, { catnode_id: resp.data._id })
-             .then(e => console.log("RESP",e));
+             .then(e => resizeBy.json(e));
       })
       .catch(err => console.log(err))
   }
