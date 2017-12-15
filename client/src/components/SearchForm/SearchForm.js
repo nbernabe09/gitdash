@@ -37,7 +37,7 @@ class SearchForm extends React.Component {
         </RadioGroup>
         <div className="mdl-layout-title margin-top4">Search Term</div>
         <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input style="width: 100px !important" className="mdl-textfield__input" type="text" name="beginDate" value={this.state.term} onChange={this.handleText.bind(this)} id="Date1" />
+          <input className="mdl-textfield__input" type="text" name="beginDate" value={this.state.term} onChange={this.handleText.bind(this)} id="Date1" />
           <label className="mdl-textfield__label show-on-foc" htmlFor="Date">Enter your search term.</label>
         </div>
         <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
