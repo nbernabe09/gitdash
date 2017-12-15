@@ -39,6 +39,7 @@ class RepoViewer extends React.Component {
          this.setState({ data: data });
          let names = cats.owners;
          let proms = names.map(e => API.getUserName(e));
+         console.log(proms);
          Promise.all(proms)
                 .then(names => {
                   names = names.map(e => e.data.login);

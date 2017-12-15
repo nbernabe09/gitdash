@@ -10,6 +10,7 @@ function handlerGen(routHand) {
   return (req, res) => {
     Token.findOne({ github_id: req.user.github_id })
       .then(e => {
+        console.log("FOUND TOKEN");
         let url = routHand(req.params.term, e.token);
         axios.get(url)
           .then(function (resp) {
