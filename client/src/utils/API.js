@@ -10,8 +10,8 @@ export default {
   searchRepos: function(term) {
     return axios.get(`/api/github/search/repos/${term}`);
   },
-  getCollectionInfo: function(id) {
-    return axios.get(`/api/collection/info/${id}`);
+  getCollectionInfo: function() {
+    return axios.get(`/api/collection/info/`);
   },
   getUserName: function(id) {
     return axios.get(`/api/github/user/${id}`);
