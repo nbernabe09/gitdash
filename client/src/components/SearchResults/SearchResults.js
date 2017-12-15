@@ -77,7 +77,7 @@ class SearchResults extends React.Component {
           <DialogContent>
             <h2>Category</h2>
             <div style={{width: "180px" }} className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input style={{ width: "180px" }} className="mdl-textfield__input" type="text" name="beginDate" value={this.state.term} onChange={this.handleText.bind(this)} id="Date1" />
+              <input style={{ width: "180px" }} className="mdl-textfield__input" type="text" name="beginDate" value={this.state.currentCategory} onChange={this.handleText.bind(this)} id="Date1" />
             </div>
           </DialogContent>
           <DialogActions>
