@@ -53,7 +53,7 @@ class SearchResults extends React.Component {
         {this.state.results.length !== 0 ? this.renderCards(this.state.results) : null}
       </ContainerCard>
       <div>
-        <Button colored onClick={this.handleOpenDialog} raised ripple>Show Dialog</Button>
+        <Button colored onClick={this.handleOpenDialog.bind(this)} raised ripple>Show Dialog</Button>
         <Dialog open={this.state.openDialog}>
           <DialogTitle>Allow data collection?</DialogTitle>
           <DialogContent>
@@ -61,7 +61,7 @@ class SearchResults extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button type='button'>Agree</Button>
-            <Button type='button' onClick={this.handleCloseDialog}>Disagree</Button>
+            <Button type='button' onClick={this.handleCloseDialog.bind(this)}>Disagree</Button>
           </DialogActions>
         </Dialog>
       </div>
