@@ -8,15 +8,22 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from 'react
 class SearchResults extends React.Component {
   state = {
     results: [],
-    openDialog: false
+    openDialog: false,
+    currentSelection: {}
   }
 
   componentDidMount() {
     this.performSearch(this.props.type, this.props.term);
   }
 
-  renderCards = res => {
-    return res.map(e => <RepoCard key={e.repo_id} repoObj={e} />);
+  triggerModal(obj) {
+    this.setState({ currentSelection: obj });
+    console.log(this.state.currentSelection);
+    this.handleOpenDialog();
+  }
+
+  renderCards = (res, handle) => {
+    return res.map(e => <RepoCard key={e.repo_id} repoObj={e} handle={handle} />);
   }
 
   handleOpenDialog() {
@@ -48,10 +55,8 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    return ( <div>
-      <ContainerCard title="Search Results">
-        {this.state.results.length !== 0 ? this.renderCards(this.state.results) : null}
-      </ContainerCard>
+    return ( <ContainerCard title="Search Results">
+        {this.state.results.length !== 0 ? this.renderCards(this.state.results, this.state.triggerModal.bind(this)) : null}
       <div>
         <Button colored onClick={this.handleOpenDialog.bind(this)} raised ripple>Show Dialog</Button>
         <Dialog open={this.state.openDialog}>
@@ -65,7 +70,7 @@ class SearchResults extends React.Component {
           </DialogActions>
         </Dialog>
       </div>
-    </div>
+      </ContainerCard>
     )
   }
 }
