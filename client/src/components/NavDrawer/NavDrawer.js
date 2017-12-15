@@ -51,7 +51,7 @@ class NavDrawer extends React.Component {
     return <DrawerMDL className="dash-drawer no-border">
       <header className="dash-drawer-header" role="presentation">
         <div className="icon-row">
-          <img src={ this.state.img ? this.state.img : "/images/user.jpg"} alt="user-avatar" className="dash-avatar" />
+          <img src={ this.state.image ? this.state.image : "/images/user.jpg"} alt="user-avatar" className="dash-avatar" />
           <a href="https://www.github.com"><SourceForkIcon className="black-circle" /></a>
           <a href="/"><EyeIcon className="black-circle" /></a>
           <a href="/saved"><StarIcon className="black-circle" /></a>
