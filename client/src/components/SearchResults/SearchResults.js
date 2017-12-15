@@ -19,8 +19,6 @@ class SearchResults extends React.Component {
 
   triggerModal(obj) {
     this.setState({ currentSelection: obj });
-    console.log(this.state.currentSelection);
-    console.log(this.state.currentCategory);
     this.handleOpenDialog();
   }
 
@@ -72,7 +70,6 @@ class SearchResults extends React.Component {
     return ( <ContainerCard title="Search Results">
         {this.state.results.length !== 0 ? this.renderCards(this.state.results, this.triggerModal.bind(this)) : null}
       <div>
-        <Button colored onClick={this.handleOpenDialog.bind(this)} raised ripple>Show Dialog</Button>
         <Dialog open={this.state.openDialog}>
           <DialogTitle>Save Repo</DialogTitle>
           <DialogContent>

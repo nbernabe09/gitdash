@@ -17,12 +17,17 @@ module.exports = {
       res.end();
   },
   add: function(req, res) {
+      console.log("ADDCATNODE");
+      
       const repoObj = {
         repo_id: req.body.repo_id,
         owner_id: req.user.github_id,
         language: req.body.language,
         category: req.body.category
       }
+
+      console.log("repoObj", repoObj);
+      
       // Go Through chained CatNode creation process
       // Need to create RepoOwner -> RepoLanguage -> Repo -> RepoCatNode
       // Find or create the RepoOwner by repo_id

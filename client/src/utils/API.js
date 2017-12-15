@@ -23,8 +23,6 @@ export default {
     return axios.get(`/api/user/${id}`);
   },
   addCatNode: function(obj) {
-    console.log("addCatNode");
-    console.log(obj);
     axios.post("/api/catnode/", obj)
       .then(function (resp) {
         console.log("IN RESP");
