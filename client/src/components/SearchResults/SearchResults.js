@@ -44,7 +44,7 @@ class SearchResults extends React.Component {
     let returnObj = {
       language: this.state.currentSelection.language,
       category: this.state.currentCategory,
-      repo_id:  this.state.repo_id
+      repo_id:  this.state.currentSelection.repo_id
     }
     console.log(returnObj);
     API.addCatNode(returnObj);
