@@ -17,7 +17,6 @@ module.exports = {
       res.end();
   },
   add: function(req, res) {
-      console.log(req.user);
       const repoObj = {
         repo_id: req.body.repo_id,
         owner_id: req.user.github_id,

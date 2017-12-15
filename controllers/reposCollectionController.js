@@ -6,7 +6,6 @@ function gatherUnique() {
 
 module.exports = {
   get: function(req, res) {
-    console.log(req.session);
     db.RepoCollection
       .find({ _id: req.params.id })
       .then(ret => res.json(ret))
@@ -14,7 +13,7 @@ module.exports = {
   },
   add: function (req, res) {
     db.RepoCollection
-      .findByIdAndUpdate({ _id: req.params.id },
+      .findByIdAndUpdate({ _id: req.user.repo_collection },
                          { $push: { repos: req.body.catnode_id } },
                          { upsert: false })
     res.end();
@@ -23,7 +22,6 @@ module.exports = {
     db.User.find({ github_id: req.params.id })
            .then(user => {
              let colId = user[0].repo_collection;
-             console.log(colId);
              const repoObj = {
                repo_id: req.body.repo_id,
                owner_id: req.body.owner,

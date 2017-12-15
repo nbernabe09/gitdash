@@ -19,8 +19,6 @@ class SearchResults extends React.Component {
 
   triggerModal(obj) {
     this.setState({ currentSelection: obj });
-    console.log(this.state.currentSelection);
-    console.log(this.state.currentCategory);
     this.handleOpenDialog();
   }
 
@@ -38,6 +36,17 @@ class SearchResults extends React.Component {
     this.setState({
       openDialog: false
     });
+  }
+
+  addRepo() {
+    let returnObj = {
+      language: this.state.currentSelection.language,
+      category: this.state.currentCategory,
+      repo_id:  this.state.currentSelection.repo_id
+    }
+    API.addCatNode(returnObj);
+    this.handleCloseDialog();
+    this.setState({ currentCategory: null });
   }
 
   handleText = event => this.setState({ currentCategory: event.target.value });
@@ -62,17 +71,16 @@ class SearchResults extends React.Component {
     return ( <ContainerCard title="Search Results">
         {this.state.results.length !== 0 ? this.renderCards(this.state.results, this.triggerModal.bind(this)) : null}
       <div>
-        <Button colored onClick={this.handleOpenDialog.bind(this)} raised ripple>Show Dialog</Button>
         <Dialog open={this.state.openDialog}>
           <DialogTitle>Save Repo</DialogTitle>
           <DialogContent>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input className="mdl-textfield__input" type="text" name="beginDate" value={this.state.term} onChange={this.handleText.bind(this)} id="Date1" />
-              <label className="mdl-textfield__label show-on-foc" htmlFor="Date">Category</label>
+            <h2>Category</h2>
+            <div style={{width: "180px" }} className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input style={{ width: "180px" }} className="mdl-textfield__input" type="text" name="beginDate" value={this.state.term} onChange={this.handleText.bind(this)} id="Date1" />
             </div>
           </DialogContent>
           <DialogActions>
-            <Button type='button' onClick={this.handleCloseDialog.bind(this)}>Submit</Button>
+            <Button type='button' onClick={this.addRepo.bind(this)}>Submit</Button>
           </DialogActions>
         </Dialog>
       </div>
