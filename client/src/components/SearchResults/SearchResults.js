@@ -40,6 +40,16 @@ class SearchResults extends React.Component {
     });
   }
 
+  addRepo() {
+    let returnObj = {
+      language: this.state.currentSelection.language,
+      category: this.state.currentCategory,
+      repo_id:  this.state.repo_id
+    }
+    console.log(returnObj);
+    API.addCatNode(returnObj);
+  }
+
   handleText = event => this.setState({ currentCategory: event.target.value });
 
   performSearch = (type, term) => {
